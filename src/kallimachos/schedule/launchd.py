@@ -43,7 +43,8 @@ def label(job: str) -> str:
 def _uid() -> int:
     if sys.platform == "win32":
         return 0
-    return os.getuid()
+    else:
+        return os.getuid()
 
 
 def plist_dict(spec: JobSpec, layout: DataLayout, python: str) -> dict[str, Any]:

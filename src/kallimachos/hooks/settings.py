@@ -67,7 +67,8 @@ def settings_path(target: Target, scope: Scope, *, home: Path, project: Path) ->
 def _quote(args: list[str]) -> str:
     if sys.platform == "win32":
         return subprocess.list2cmdline(args)
-    return shlex.join(args)
+    else:
+        return shlex.join(args)
 
 
 def hook_command(python: str, layout: DataLayout, which: str, target: Target) -> str:

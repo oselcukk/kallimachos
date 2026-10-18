@@ -52,26 +52,28 @@ def data_dir(
 def tighten_mode(path: Path, mode: int) -> bool:
     """``chmod`` ``path`` to ``mode`` when it is more permissive (group/other bits set); returns
     whether a change was made. Windows (no POSIX modes) and permission errors leave it alone."""
-    if sys.platform.startswith("win"):
+    if sys.platform == "win32":
         return False
-    try:
-        current = path.stat().st_mode & 0o777
-        if current & ~mode:
-            path.chmod(mode)
-            return True
-    except OSError:
+    else:
+        try:
+            current = path.stat().st_mode & 0o777
+            if current & ~mode:
+                path.chmod(mode)
+                return True
+        except OSError:
+            return False
         return False
-    return False
 
 
 def too_open(path: Path, mode: int) -> bool:
     """True when ``path`` has permission bits outside ``mode`` (POSIX only)."""
-    if sys.platform.startswith("win"):
+    if sys.platform == "win32":
         return False
-    try:
-        return bool(path.stat().st_mode & 0o777 & ~mode)
-    except OSError:
-        return False
+    else:
+        try:
+            return bool(path.stat().st_mode & 0o777 & ~mode)
+        except OSError:
+            return False
 
 
 @dataclass(frozen=True)

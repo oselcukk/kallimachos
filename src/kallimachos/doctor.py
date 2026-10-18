@@ -271,8 +271,13 @@ def _private_paths(layout: DataLayout) -> list[tuple[Path, int]]:
 def _check_permissions(layout: DataLayout, fix: bool) -> DoctorCheck:
     """POSIX only: the data directory tree is ``0700`` and its files ``0600``; ``--fix`` tightens
     them (never loosens)."""
-    if sys.platform.startswith("win"):
+    if sys.platform == "win32":
         return DoctorCheck("permissions", True, "not checked on Windows")
+    else:
+        return _check_posix_permissions(layout, fix)
+
+
+def _check_posix_permissions(layout: DataLayout, fix: bool) -> DoctorCheck:
     if not layout.config_file.exists():
         return DoctorCheck("permissions", True, "no installation yet (init sets 0700/0600)")
     open_paths = [(p, m) for p, m in _private_paths(layout) if too_open(p, m)]

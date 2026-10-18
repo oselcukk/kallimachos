@@ -66,15 +66,16 @@ def pid_alive(pid: int) -> bool:
             return False
         kernel32.CloseHandle(handle)
         return True
-    try:
-        os.kill(pid, 0)
-    except ProcessLookupError:
-        return False
-    except PermissionError:
-        return True  # exists, owned by someone else
-    except OSError:
-        return False
-    return True
+    else:
+        try:
+            os.kill(pid, 0)
+        except ProcessLookupError:
+            return False
+        except PermissionError:
+            return True  # exists, owned by someone else
+        except OSError:
+            return False
+        return True
 
 
 def read_lock_info(path: Path) -> dict[str, Any] | None:

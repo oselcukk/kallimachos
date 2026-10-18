@@ -37,7 +37,8 @@ def default_executor(argv: Sequence[str], stdin: str) -> subprocess.CompletedPro
 def _split(command: str) -> list[str]:
     if sys.platform == "win32":  # list2cmdline quoting: non-POSIX split, then drop the quotes
         return [part.strip('"') for part in shlex.split(command, posix=False)]
-    return shlex.split(command)
+    else:
+        return shlex.split(command)
 
 
 def _commands(data: dict[str, Any]) -> dict[str, str]:
