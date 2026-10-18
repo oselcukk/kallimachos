@@ -1,0 +1,19 @@
+# gitleaks configuration: the default rules, plus a narrow allowlist for the deliberately fake
+# values that the leak/redaction tests feed through the code. Only these exact secrets are
+# allowed (anchored regexes); no path is muted, so any other finding in the same files still fails.
+#   SENTINEL-KEY-7f3a9c       tests/unit/test_sources_cli.py, tests/unit/test_sources_leaks.py
+#   AbC1dEf2GhI3jKl4MnO5pQr6  tests/unit/test_core_secrets.py (URL query key shape)
+#   smith2021fictional        tests/unit/test_process_notes_index.py (a "citekey:" front-matter value)
+title = "kallimachos gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Fake sentinel keys and citekeys in unit tests (not real credentials)"
+regexTarget = "secret"
+regexes = [
+  '''^SENTINEL-KEY-7f3a9c$''',
+  '''^AbC1dEf2GhI3jKl4MnO5pQr6$''',
+  '''^smith2021fictional$''',
+]
