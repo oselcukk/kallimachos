@@ -55,7 +55,8 @@ def test_catalog_to_ris_fields_and_categories() -> None:
     a = out["A-Example-Channel"]
     assert "TY  - JOUR" in a
     assert "AU  - Alpha, Example" in a and "AU  - Beta, Example" in a
-    assert "L1  - /archive/A-Example-Channel/01-Sub/Author_2019_Illustrative.pdf" in a
+    pdf = Path("/archive") / "A-Example-Channel" / "01-Sub" / "Author_2019_Illustrative.pdf"
+    assert f"L1  - {pdf}" in a  # a native path, as Zotero expects on each platform
     assert "KW  - A-Example-Channel/01-Sub" in a
     assert f"N1  - eid:{EID_A}" in a
     assert "DO  - 10.0000/example.a" in a and "SP  - 1-20" in a and "PY  - 2019" in a

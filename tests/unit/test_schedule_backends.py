@@ -103,7 +103,7 @@ def test_launchd_render_matches_appendix_c1(
     assert daily["RunAtLoad"] is False
     assert daily["ProcessType"] == "Background"
     assert daily["EnvironmentVariables"] == {"KALLIMACHOS_HOME": str(layout.root)}
-    assert daily["StandardOutPath"].endswith("logs/launchd-daily.out")
+    assert daily["StandardOutPath"] == str(layout.logs / "launchd-daily.out")
     weekly = plistlib.loads(files["weekly"].content.encode())
     assert weekly["StartCalendarInterval"] == {"Hour": 9, "Minute": 30, "Weekday": 0}
     archive = plistlib.loads(files["archive"].content.encode())
@@ -229,7 +229,8 @@ def test_systemd_units_match_appendix_c3(
     assert "OnCalendar=Sun *-*-* 09:30:00" in files["kallimachos-weekly.timer"].content
     service = files["kallimachos-daily.service"].content
     assert "Type=oneshot" in service
-    assert f'ExecStart="{PY}" -m kallimachos --data-dir "{layout.root}" run daily' in service
+    root = systemd.unit_quote(str(layout.root))  # backslashes are doubled in unit quoting
+    assert f'ExecStart="{PY}" -m kallimachos --data-dir {root} run daily' in service
     assert "kallimachos-catchup.timer" not in files
     assert "WantedBy=default.target" in files["kallimachos-catchup.service"].content
     assert systemd.unit_quote("50%") == "50%%"
