@@ -25,9 +25,14 @@ from kallimachos.interfaces import LockHeld
 if sys.platform == "win32":  # pragma: no cover - exercised on the Windows CI runner
     import msvcrt
 
+    # Windows byte-range locks are mandatory: locking byte 0 would make the owner record
+    # unreadable for everyone else. Lock one byte far past any content instead (allowed beyond
+    # end of file), so ``read_lock_info`` and ``doctor`` can still read who holds it.
+    _LOCK_OFFSET = 1 << 30
+
     def _try_lock(fh: IO[str]) -> bool:
         try:
-            fh.seek(0)
+            fh.seek(_LOCK_OFFSET)
             msvcrt.locking(fh.fileno(), msvcrt.LK_NBLCK, 1)
         except OSError:
             return False
@@ -35,7 +40,7 @@ if sys.platform == "win32":  # pragma: no cover - exercised on the Windows CI ru
 
     def _unlock(fh: IO[str]) -> None:
         with contextlib.suppress(OSError):
-            fh.seek(0)
+            fh.seek(_LOCK_OFFSET)
             msvcrt.locking(fh.fileno(), msvcrt.LK_UNLCK, 1)
 
 else:
