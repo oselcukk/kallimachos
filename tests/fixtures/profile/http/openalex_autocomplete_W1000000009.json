@@ -1,0 +1,16 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.openalex.org/autocomplete/works",
+  "params": {
+   "q": "Equidistribution of fictional Kloosterman angles in arithmetic progressions"
+  }
+ },
+ "response": {
+  "status": 200,
+  "headers": {
+   "Content-Type": "application/json"
+  },
+  "body_file": "openalex_autocomplete_W1000000009.body.json"
+ }
+}

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/reading_queue/1",
+  "title": "ReadingQueueEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "kind": {
+      "enum": [
+        "read",
+        "ask"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "candidate_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "eid": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "pattern": "^[0-9a-f]{12}$",
+      "default": null
+    },
+    "url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "synced": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/QueueSync"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "at",
+    "kind"
+  ],
+  "description": "One line of ``process/reading_queue.jsonl``.",
+  "$defs": {
+    "QueueSync": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "avenox_task_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "queue_file_line": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "description": "How a reading-queue entry was delivered: an Avenox task id or a line in the queue file."
+    }
+  }
+}

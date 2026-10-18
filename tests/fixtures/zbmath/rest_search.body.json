@@ -1,0 +1,133 @@
+{
+ "result": [
+  {
+   "biographic_references": [],
+   "contributors": {
+    "authors": [
+     {
+      "aliases": [],
+      "checked": "0",
+      "codes": [
+       "author.example-a"
+      ],
+      "name": "Author, Example A"
+     },
+     {
+      "aliases": [],
+      "checked": "0",
+      "codes": [
+       "author.example-b"
+      ],
+      "name": "Author, Example B"
+     }
+    ],
+    "author_references": [],
+    "editors": []
+   },
+   "database": "Zbl",
+   "datestamp": "2026-01-21T21:43:57Z",
+   "document_type": {
+    "code": "j",
+    "description": "journal article"
+   },
+   "editorial_contributions": [
+    {
+     "language": "English",
+     "reviewer": {
+      "author_code": "reviewer.example",
+      "reviewer_id": "1",
+      "name": "Example Reviewer",
+      "sign": "Example Reviewer (Example City)"
+     },
+     "text": "We prove fictional bounds for twisted exponential sums with multiplicative coefficients and discuss an invented application to modular forms.",
+     "contribution_type": "review"
+    }
+   ],
+   "id": 9000001,
+   "identifier": null,
+   "keywords": [
+    "Diophantine equations"
+   ],
+   "language": {
+    "languages": [
+     "English"
+    ],
+    "addition": [
+     null
+    ]
+   },
+   "license": [],
+   "links": [
+    {
+     "identifier": "10.0000/example.41",
+     "type": "doi",
+     "url": "https://doi.org/10.0000/example.41"
+    },
+    {
+     "identifier": "2610.00004",
+     "type": "arxiv",
+     "url": "https://arxiv.org/abs/2610.00004"
+    }
+   ],
+   "msc": [
+    {
+     "code": "11D61",
+     "scheme": "msc2020",
+     "text": "Exponential Diophantine equations"
+    },
+    {
+     "code": "11B39",
+     "scheme": "msc2020",
+     "text": "Fibonacci and Lucas numbers"
+    }
+   ],
+   "references": [],
+   "source": {
+    "book": [],
+    "pages": "xiii, 155~p.",
+    "series": [
+     {
+      "acronym": null,
+      "issn": [
+       {
+        "number": "0000-0019",
+        "type": "print"
+       }
+      ],
+      "issue": null,
+      "issue_id": 1,
+      "parallel_title": null,
+      "part": null,
+      "publisher": "Example Publisher",
+      "series_id": 1,
+      "short_title": "Ex. J. Math.",
+      "title": "Example Journal of Mathematics",
+      "volume": "1",
+      "year": "2026"
+     }
+    ],
+    "source": "Ex. J. Math. 1, No. 1, Paper No. 1, 12 p. (2026)"
+   },
+   "states": [],
+   "title": {
+    "addition": null,
+    "original": null,
+    "subtitle": null,
+    "title": "An invented family of Diophantine equations"
+   },
+   "year": "2026",
+   "zbmath_url": "https://zbmath.org/9000001"
+  }
+ ],
+ "status": {
+  "execution": "successful request",
+  "execution_bool": true,
+  "internal_code": "ok",
+  "last_id": null,
+  "nr_total_results": 1,
+  "nr_request_results": 1,
+  "query_execution_time_in_seconds": 0.07796978950500488,
+  "status_code": 200,
+  "time_stamp": "2026-10-18T10:22:46Z"
+ }
+}

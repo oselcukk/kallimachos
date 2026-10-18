@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+    "params": {
+      "db": "pubmed",
+      "term": "\"prime numbers\"[tiab]",
+      "datetype": "edat",
+      "reldate": "2",
+      "retmode": "json",
+      "tool": "kallimachos"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=UTF-8",
+      "X-Ratelimit-Limit": "3",
+      "X-Ratelimit-Remaining": "2"
+    },
+    "body_file": "esearch.body.json"
+  },
+  "expect": {
+    "ids": 2
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data."
+}

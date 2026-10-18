@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/semantic_result/1",
+  "title": "SemanticResult",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "eid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}$"
+    },
+    "verifier_model": {
+      "type": "string",
+      "default": ""
+    },
+    "at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "result": {
+      "enum": [
+        "pass",
+        "fail"
+      ],
+      "default": "fail"
+    },
+    "schema": {
+      "enum": [
+        "kallimachos.semantic_result/1"
+      ],
+      "default": "kallimachos.semantic_result/1"
+    },
+    "mismatches": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Mismatch"
+      }
+    },
+    "pages_read_from_image": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "eid"
+  ],
+  "description": "``process/semantic/<eid>.json`` (schema ``kallimachos.semantic_result/1``).",
+  "$defs": {
+    "Mismatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ]
+        },
+        "page": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "quote": {
+          "type": "string",
+          "default": ""
+        },
+        "note_sentence": {
+          "type": "string",
+          "default": ""
+        },
+        "severity": {
+          "enum": [
+            "minor",
+            "major"
+          ],
+          "default": "major"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "description": "One semantic mismatch: a missing problem/claim, b missing main result,"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/cluster/1",
+  "title": "ClusterFrontmatter",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cluster": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string",
+      "default": ""
+    },
+    "work_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "kind": {
+      "type": "string",
+      "default": "note"
+    },
+    "visibility": {
+      "enum": [
+        "public",
+        "internal",
+        "private"
+      ],
+      "default": "internal"
+    },
+    "kallimachos": {
+      "enum": [
+        "cluster/1"
+      ],
+      "default": "cluster/1"
+    }
+  },
+  "required": [
+    "cluster"
+  ],
+  "description": "Frontmatter of ``_Cluster-Summary.md`` (contract ``cluster/1``)."
+}

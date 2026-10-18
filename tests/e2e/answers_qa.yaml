@@ -1,0 +1,40 @@
+# Fictional answers.yaml for the Q&A acceptance path (first end-to-end scenario).
+# No real people, journals, keys or paths.
+language: en
+data_dir: null
+profile:
+  methods: [qa]
+  qa:
+    field: number-theory
+    channels:
+      - id: A
+        name: Analytic number theory
+        priority: 1
+        core: [riemann zeta function, dirichlet l-function, prime number theorem, zero density,
+               sieve method, large sieve, exponential sums]
+        broad: [prime gaps, subconvexity, character sum]
+        exclude: [zeta potential, riemann solver]
+        penalty: [machine learning]
+        msc: [11M06, 11N05]
+        arxiv: [math.NT]
+      - "Arithmetic geometry: elliptic curve; modular form; galois representation; rational points; abelian variety"
+    authors:
+      - {name: Example Advisor, always_show: true, aliases: [E. Advisor]}
+      - {name: Example Researcher One, channels: [A]}
+      - Example Researcher Two
+    journals:
+      - {name: Example Journal of Number Theory, issn: ["0000-0001"], mode: full, channel: A}
+      - "Example Mathematical Proceedings 0000-0002"
+    arxiv_categories: [math.NT, math.AG]
+    codes: [11G05]
+    exclude: [cosmology phenomenology, control theory]
+sources: [arxiv, crossref, openalex]
+keys: {openalex: null, semantic_scholar: null, crossref_mailto: null, unpaywall_email: null}
+model: {provider: none}
+notify: {channels: [markdown], markdown_path: null}
+feedback: {channels: [markdown]}
+archive: {enabled: false}
+process: {enabled: false}
+notes: {target: plain}
+bridge: {enabled: false}
+schedule: {backend: none, daily_at: "07:30", weekly_on: sun, weekly_at: "09:30", archive_at: "06:30"}

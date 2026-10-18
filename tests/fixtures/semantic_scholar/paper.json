@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.0000/example.31"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body_file": "paper.body.json"
+  },
+  "expect": {
+    "title": "Fictional bounds for twisted exponential sums"
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data."
+}

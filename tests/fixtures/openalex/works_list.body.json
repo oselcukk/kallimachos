@@ -1,0 +1,540 @@
+{
+ "meta": {
+  "notice": "No API key, so this request shares one free daily budget ($0.10) with everyone on your network's IP address.",
+  "count": 3,
+  "db_response_time_ms": 34,
+  "page": null,
+  "per_page": 3,
+  "next_cursor": null,
+  "groups_count": null,
+  "x_query": {
+   "url": "/works?filter=from_publication_date:2026-10-10&per_page=3&cursor=%2A"
+  },
+  "cost_usd": 0.0001
+ },
+ "results": [
+  {
+   "id": "https://openalex.org/W1000000001",
+   "doi": "https://doi.org/10.0000/example.21",
+   "display_name": "Fictional bounds for twisted exponential sums",
+   "authorships": [
+    {
+     "author_position": "first",
+     "author": {
+      "id": "https://openalex.org/A5000000010",
+      "display_name": "Example Author A",
+      "orcid": "https://orcid.org/0000-0002-1825-0097",
+      "observed_orcids": []
+     },
+     "institutions": [],
+     "countries": [],
+     "is_corresponding": true,
+     "raw_author_name": "Example Author A",
+     "raw_affiliation_strings": [
+      "Example University"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "Example University",
+       "institution_ids": []
+      }
+     ]
+    },
+    {
+     "author_position": "last",
+     "author": {
+      "id": "https://openalex.org/A5000000011",
+      "display_name": "Example Author B",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [],
+     "countries": [],
+     "is_corresponding": false,
+     "raw_author_name": "Example Author B",
+     "raw_affiliation_strings": [
+      "Example University"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "Example University",
+       "institution_ids": []
+      }
+     ]
+    }
+   ],
+   "primary_location": {
+    "id": "doi:10.0000/example.21",
+    "doi": "https://doi.org/10.0000/example.21",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.0000/example.21",
+    "pdf_url": null,
+    "source": {
+     "id": "https://openalex.org/S4000000001",
+     "display_name": "Example Journal of Mathematics",
+     "issn_l": "0000-0019",
+     "issn": [
+      "0000-0019"
+     ],
+     "is_oa": false,
+     "is_in_doaj": false,
+     "is_core": true,
+     "listed_in": [],
+     "host_organization": "https://openalex.org/P4000000001",
+     "host_organization_name": "Example Publisher",
+     "host_organization_lineage": [
+      "https://openalex.org/P4000000001"
+     ],
+     "host_organization_lineage_names": [
+      "Example Publisher"
+     ],
+     "type": "journal"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Example Journal of Mathematics",
+    "raw_type": "journal-article"
+   },
+   "locations": [
+    {
+     "id": "doi:10.0000/example.21",
+     "doi": "https://doi.org/10.0000/example.21",
+     "is_oa": false,
+     "landing_page_url": "https://doi.org/10.0000/example.21",
+     "pdf_url": null,
+     "source": {
+      "id": "https://openalex.org/S4000000001",
+      "display_name": "Example Journal of Mathematics",
+      "issn_l": "0000-0019",
+      "issn": [
+       "0000-0019"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "listed_in": [],
+      "host_organization": "https://openalex.org/P4000000001",
+      "host_organization_name": "Example Publisher",
+      "host_organization_lineage": [
+       "https://openalex.org/P4000000001"
+      ],
+      "host_organization_lineage_names": [
+       "Example Publisher"
+      ],
+      "type": "journal"
+     },
+     "license": null,
+     "license_id": null,
+     "version": "publishedVersion",
+     "is_accepted": true,
+     "is_published": true,
+     "raw_source_name": "Example Journal of Mathematics",
+     "raw_type": "journal-article"
+    },
+    {
+     "id": "pmh:oai:arXiv.org:2610.00001",
+     "doi": null,
+     "is_oa": true,
+     "landing_page_url": "https://arxiv.org/abs/2610.00001",
+     "pdf_url": "https://arxiv.org/pdf/2610.00001",
+     "source": null,
+     "license": "cc-by",
+     "license_id": "https://openalex.org/licenses/cc-by",
+     "version": "submittedVersion",
+     "is_accepted": false,
+     "is_published": false,
+     "raw_source_name": null,
+     "raw_type": "text"
+    }
+   ],
+   "best_oa_location": {
+    "id": "pmh:oai:arXiv.org:2610.00001",
+    "doi": null,
+    "is_oa": true,
+    "landing_page_url": "https://arxiv.org/abs/2610.00001",
+    "pdf_url": "https://arxiv.org/pdf/2610.00001",
+    "source": null,
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "version": "submittedVersion",
+    "is_accepted": false,
+    "is_published": false,
+    "raw_source_name": null,
+    "raw_type": "text"
+   },
+   "publication_date": "2026-10-12",
+   "created_date": "2026-10-12T00:00:00",
+   "abstract_inverted_index": {
+    "We": [
+     0
+    ],
+    "prove": [
+     1
+    ],
+    "fictional": [
+     2
+    ],
+    "bounds": [
+     3
+    ],
+    "for": [
+     4
+    ],
+    "twisted": [
+     5
+    ],
+    "exponential": [
+     6
+    ],
+    "sums": [
+     7
+    ],
+    "with": [
+     8
+    ],
+    "multiplicative": [
+     9
+    ],
+    "coefficients": [
+     10
+    ],
+    "and": [
+     11
+    ],
+    "discuss": [
+     12
+    ],
+    "an": [
+     13
+    ],
+    "invented": [
+     14
+    ],
+    "application": [
+     15
+    ],
+    "to": [
+     16
+    ],
+    "modular": [
+     17
+    ],
+    "forms.": [
+     18
+    ]
+   },
+   "referenced_works": [
+    "https://openalex.org/W2000000001",
+    "https://openalex.org/W2000000002"
+   ],
+   "type": "article",
+   "ids": {
+    "openalex": "https://openalex.org/W1000000001",
+    "doi": "https://doi.org/10.0000/example.21"
+   },
+   "open_access": {
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://arxiv.org/pdf/2610.00001",
+    "any_repository_has_fulltext": true
+   }
+  },
+  {
+   "id": "https://openalex.org/W1000000002",
+   "doi": "https://doi.org/10.0000/example.22",
+   "display_name": "An invented family of Diophantine equations",
+   "authorships": [
+    {
+     "author_position": "first",
+     "author": {
+      "id": "https://openalex.org/A5000000020",
+      "display_name": "Example Author C",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [],
+     "countries": [],
+     "is_corresponding": true,
+     "raw_author_name": "Example Author C",
+     "raw_affiliation_strings": [
+      "Example University"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "Example University",
+       "institution_ids": []
+      }
+     ]
+    }
+   ],
+   "primary_location": {
+    "id": "doi:10.0000/example.22",
+    "doi": "https://doi.org/10.0000/example.22",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.0000/example.22",
+    "pdf_url": null,
+    "source": {
+     "id": "https://openalex.org/S4000000001",
+     "display_name": "Example Journal of Mathematics",
+     "issn_l": "0000-0019",
+     "issn": [
+      "0000-0019"
+     ],
+     "is_oa": false,
+     "is_in_doaj": false,
+     "is_core": true,
+     "listed_in": [],
+     "host_organization": "https://openalex.org/P4000000001",
+     "host_organization_name": "Example Publisher",
+     "host_organization_lineage": [
+      "https://openalex.org/P4000000001"
+     ],
+     "host_organization_lineage_names": [
+      "Example Publisher"
+     ],
+     "type": "journal"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Example Journal of Mathematics",
+    "raw_type": "journal-article"
+   },
+   "locations": [
+    {
+     "id": "doi:10.0000/example.22",
+     "doi": "https://doi.org/10.0000/example.22",
+     "is_oa": false,
+     "landing_page_url": "https://doi.org/10.0000/example.22",
+     "pdf_url": null,
+     "source": {
+      "id": "https://openalex.org/S4000000001",
+      "display_name": "Example Journal of Mathematics",
+      "issn_l": "0000-0019",
+      "issn": [
+       "0000-0019"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "listed_in": [],
+      "host_organization": "https://openalex.org/P4000000001",
+      "host_organization_name": "Example Publisher",
+      "host_organization_lineage": [
+       "https://openalex.org/P4000000001"
+      ],
+      "host_organization_lineage_names": [
+       "Example Publisher"
+      ],
+      "type": "journal"
+     },
+     "license": null,
+     "license_id": null,
+     "version": "publishedVersion",
+     "is_accepted": true,
+     "is_published": true,
+     "raw_source_name": "Example Journal of Mathematics",
+     "raw_type": "journal-article"
+    }
+   ],
+   "best_oa_location": null,
+   "publication_date": "2026-10-11",
+   "created_date": "2026-10-11T00:00:00",
+   "abstract_inverted_index": {
+    "We": [
+     0
+    ],
+    "study": [
+     1
+    ],
+    "toy": [
+     2
+    ],
+    "models": [
+     3
+    ],
+    "of": [
+     4
+    ],
+    "modular": [
+     5
+    ],
+    "forms": [
+     6
+    ],
+    "over": [
+     7
+    ],
+    "finite": [
+     8
+    ],
+    "fields.": [
+     9
+    ],
+    "Nothing": [
+     10
+    ],
+    "here": [
+     11
+    ],
+    "is": [
+     12
+    ],
+    "a": [
+     13
+    ],
+    "real": [
+     14
+    ],
+    "result.": [
+     15
+    ]
+   },
+   "referenced_works": [
+    "https://openalex.org/W2000000001",
+    "https://openalex.org/W2000000002"
+   ],
+   "type": "article",
+   "ids": {
+    "openalex": "https://openalex.org/W1000000002",
+    "doi": "https://doi.org/10.0000/example.22"
+   },
+   "open_access": {
+    "is_oa": false,
+    "oa_status": "closed",
+    "oa_url": null,
+    "any_repository_has_fulltext": false
+   }
+  },
+  {
+   "id": "https://openalex.org/W1000000003",
+   "doi": "https://doi.org/10.0000/example.23",
+   "display_name": "Toy models of modular forms over finite fields",
+   "authorships": [
+    {
+     "author_position": "first",
+     "author": {
+      "id": "https://openalex.org/A5000000030",
+      "display_name": "Example Author D",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [],
+     "countries": [],
+     "is_corresponding": true,
+     "raw_author_name": "Example Author D",
+     "raw_affiliation_strings": [
+      "Example University"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "Example University",
+       "institution_ids": []
+      }
+     ]
+    }
+   ],
+   "primary_location": {
+    "id": "doi:10.0000/example.23",
+    "doi": "https://doi.org/10.0000/example.23",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.0000/example.23",
+    "pdf_url": null,
+    "source": {
+     "id": "https://openalex.org/S4000000001",
+     "display_name": "Example Journal of Mathematics",
+     "issn_l": "0000-0019",
+     "issn": [
+      "0000-0019"
+     ],
+     "is_oa": false,
+     "is_in_doaj": false,
+     "is_core": true,
+     "listed_in": [],
+     "host_organization": "https://openalex.org/P4000000001",
+     "host_organization_name": "Example Publisher",
+     "host_organization_lineage": [
+      "https://openalex.org/P4000000001"
+     ],
+     "host_organization_lineage_names": [
+      "Example Publisher"
+     ],
+     "type": "journal"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Example Journal of Mathematics",
+    "raw_type": "journal-article"
+   },
+   "locations": [
+    {
+     "id": "doi:10.0000/example.23",
+     "doi": "https://doi.org/10.0000/example.23",
+     "is_oa": false,
+     "landing_page_url": "https://doi.org/10.0000/example.23",
+     "pdf_url": null,
+     "source": {
+      "id": "https://openalex.org/S4000000001",
+      "display_name": "Example Journal of Mathematics",
+      "issn_l": "0000-0019",
+      "issn": [
+       "0000-0019"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "listed_in": [],
+      "host_organization": "https://openalex.org/P4000000001",
+      "host_organization_name": "Example Publisher",
+      "host_organization_lineage": [
+       "https://openalex.org/P4000000001"
+      ],
+      "host_organization_lineage_names": [
+       "Example Publisher"
+      ],
+      "type": "journal"
+     },
+     "license": null,
+     "license_id": null,
+     "version": "publishedVersion",
+     "is_accepted": true,
+     "is_published": true,
+     "raw_source_name": "Example Journal of Mathematics",
+     "raw_type": "journal-article"
+    }
+   ],
+   "best_oa_location": null,
+   "publication_date": "2026-10-10",
+   "created_date": "2026-10-10T00:00:00",
+   "abstract_inverted_index": null,
+   "referenced_works": [
+    "https://openalex.org/W2000000001",
+    "https://openalex.org/W2000000002"
+   ],
+   "type": "article",
+   "ids": {
+    "openalex": "https://openalex.org/W1000000003",
+    "doi": "https://doi.org/10.0000/example.23"
+   },
+   "open_access": {
+    "is_oa": false,
+    "oa_status": "closed",
+    "oa_url": null,
+    "any_repository_has_fulltext": false
+   }
+  }
+ ],
+ "group_by": []
+}

@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.semanticscholar.org/graph/v1/paper/search/bulk",
+    "params": {
+      "query": "\"elliptic curve\"",
+      "publicationDateOrYear": "2026-09-01:2026-10-17"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body_file": "bulk.body.json"
+  },
+  "expect": {
+    "records": 3
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data."
+}

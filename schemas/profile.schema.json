@@ -1,0 +1,529 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/profile/1",
+  "title": "Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "default": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "approved"
+      ],
+      "default": "draft"
+    },
+    "approved_at": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "language_hint": {
+      "type": "string",
+      "default": "en"
+    },
+    "field": {
+      "type": "string",
+      "default": ""
+    },
+    "channels": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Channel"
+      }
+    },
+    "authors": {
+      "$ref": "#/$defs/Authors"
+    },
+    "seeds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Seed"
+      }
+    },
+    "foundational": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Foundational"
+      }
+    },
+    "excluded_topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ProfileRule"
+      }
+    },
+    "open_problem_phrases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "description": "Root of ``profile.yaml``.",
+  "$defs": {
+    "AlwaysShowAuthor": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "orcid": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "openalex_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "folder": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Always shown, +100 and mandatory pass; archived under ``persons/<folder>/``."
+    },
+    "Authors": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "always_show": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AlwaysShowAuthor"
+          }
+        },
+        "follow": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FollowAuthor"
+          }
+        }
+      },
+      "description": "Authors(always_show: 'list[AlwaysShowAuthor]' = <factory>, follow: 'list[FollowAuthor]' = <factory>)"
+    },
+    "Channel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,15}$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "folder": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,80}$"
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3,
+          "default": 1
+        },
+        "keywords": {
+          "$ref": "#/$defs/Keywords"
+        },
+        "negative": {
+          "$ref": "#/$defs/NegativeTerms"
+        },
+        "msc": {
+          "$ref": "#/$defs/CodeSet"
+        },
+        "arxiv": {
+          "$ref": "#/$defs/CodeSet"
+        },
+        "journals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Journal"
+          }
+        },
+        "noise_terms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProfileRule"
+          }
+        },
+        "citation_alone_passes": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "folder"
+      ],
+      "description": "One topic channel. ``folder`` is the archive and notes"
+    },
+    "CodeSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secondary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "MSC codes or arXiv categories split by weight."
+    },
+    "FollowAuthor": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "orcid": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "openalex_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "status": {
+          "enum": [
+            "verified",
+            "candidate",
+            "uncertain",
+            "not_found"
+          ],
+          "default": "candidate"
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "FollowAuthor(name: 'str', orcid: 'str | None' = None, openalex_id: 'str | None' = None, status: 'AuthorStatus' = 'candidate', channels: 'list[str]' = <factory>)"
+    },
+    "Foundational": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "openalex_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string",
+          "default": ""
+        },
+        "cited_by_seeds": {
+          "type": "integer",
+          "default": 2
+        }
+      },
+      "required": [
+        "openalex_id"
+      ],
+      "description": "Works cited by at least two seeds."
+    },
+    "Journal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "issn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "openalex_source_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "mode": {
+          "enum": [
+            "full",
+            "topic_filtered"
+          ],
+          "default": "topic_filtered"
+        },
+        "yearly_volume": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "verified": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Journal(name: 'str', issn: 'list[str]' = <factory>, openalex_source_id: 'str | None' = None, mode: \"Literal['full', 'topic_filtered']\" = 'topic_filtered', yearly_volume: 'int | None' = None, verified: 'bool' = False)"
+    },
+    "Keywords": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "core": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "broad": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "spelling_note": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "description": "Keywords(core: 'list[str]' = <factory>, broad: 'list[str]' = <factory>, spelling_note: 'str' = '')"
+    },
+    "NegativeTerms": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "penalty": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "NegativeTerms(exclude: 'list[str]' = <factory>, penalty: 'list[str]' = <factory>)"
+    },
+    "ProfileRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string",
+          "enum": [
+            "drop",
+            "pass",
+            "annotate"
+          ],
+          "default": "drop"
+        },
+        "when": {
+          "type": "object",
+          "additionalProperties": {}
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "description": "YAML-defined rule. ``when`` keys are interpreted by ``scoring.rules.loader``"
+    },
+    "Seed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "year": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "first_author": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "doi": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "arxiv": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "openalex_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "default": "medium"
+        },
+        "source_files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "description": "Seed(title: 'str', year: 'int | None' = None, first_author: 'str | None' = None, doi: 'str | None' = None, arxiv: 'str | None' = None, openalex_id: 'str | None' = None, channels: 'list[str]' = <factory>, confidence: 'Confidence' = 'medium', source_files: 'list[str]' = <factory>)"
+    }
+  }
+}

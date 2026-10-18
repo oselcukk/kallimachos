@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.crossref.org/journals/0000-0019/works",
+    "params": {
+      "rows": "3",
+      "cursor": "*",
+      "filter": "from-index-date:2026-10-17,type:journal-article"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "x-rate-limit-limit": "5",
+      "x-rate-limit-interval": "1s",
+      "x-concurrency-limit": "1",
+      "x-api-pool": "public-single"
+    },
+    "body_file": "journal_works.body.json"
+  },
+  "expect": {
+    "records": 3,
+    "first_title": "An invented family of Diophantine equations"
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data. A JATS abstract and a license/link block were added in Crossref's documented shape."
+}

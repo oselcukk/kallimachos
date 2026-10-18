@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://export.arxiv.org/api/query",
+    "params": {
+      "search_query": "cat:math.NT AND submittedDate:[202610130000 TO 202610170000]",
+      "start": "0",
+      "max_results": "3"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/atom+xml; charset=utf-8"
+    },
+    "body_file": "list.body.xml"
+  },
+  "expect": {
+    "records": 3,
+    "first_title": "Fictional bounds for twisted exponential sums"
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data."
+}

@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.openalex.org/works/W1000000001"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "X-RateLimit-Credits-Used": "0"
+    },
+    "body_file": "work_single.body.json"
+  },
+  "expect": {
+    "title": "Fictional bounds for twisted exponential sums"
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data. Heavy fields (topics, concepts, counts) trimmed."
+}

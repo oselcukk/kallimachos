@@ -1,0 +1,14 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://pub.orcid.org/v3.0/0000-0002-1825-0097/works",
+  "params": {}
+ },
+ "response": {
+  "status": 200,
+  "headers": {
+   "Content-Type": "application/json"
+  },
+  "body_file": "orcid_works_demo.body.json"
+ }
+}

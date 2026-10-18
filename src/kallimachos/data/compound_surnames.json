@@ -1,0 +1,22 @@
+{
+  "schema": "kallimachos.compound_surnames/1",
+  "about": "Surname parsing data for archive.naming. Generic naming conventions only; no person-specific entries ship with the package.",
+  "sources": [
+    "Chicago Manual of Style, 17th ed., 8.5 (particles in personal names)",
+    "https://en.wikipedia.org/wiki/Nobiliary_particle",
+    "https://en.wikipedia.org/wiki/Spanish_naming_customs",
+    "https://en.wikipedia.org/wiki/Portuguese_name",
+    "https://en.wikipedia.org/wiki/Arabic_name"
+  ],
+  "particles": [
+    "de", "del", "della", "delle", "dei", "degli", "di", "da", "das", "do", "dos",
+    "du", "des", "la", "le", "lo", "van", "von", "der", "den", "ter", "ten", "te",
+    "op", "het", "zu", "zur", "af", "av", "y"
+  ],
+  "compound_prefixes": [
+    "saint", "sainte", "st", "ste", "san", "santa", "santo", "abu", "ibn", "al", "el"
+  ],
+  "double_surname_connectors": ["y", "e", "i"],
+  "suffixes": ["jr", "sr", "ii", "iii", "iv", "2nd", "3rd"],
+  "compound_surnames": []
+}

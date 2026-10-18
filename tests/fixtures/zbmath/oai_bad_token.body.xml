@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+	<responseDate>2026-10-18T10:21:07Z</responseDate>
+	<request from="2026-10-10T00:00:00Z" metadataPrefix="oai_zb_preview" set="classification:11" verb="ListRecords">https://oai.zbmath.org/v1/</request>
+	<error code="404">badResumptionToken</error>
+</OAI-PMH>

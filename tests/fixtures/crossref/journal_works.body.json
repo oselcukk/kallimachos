@@ -1,0 +1,441 @@
+{
+ "status": "ok",
+ "message-type": "work-list",
+ "message-version": "1.0.0",
+ "message": {
+  "facets": {},
+  "next-cursor": "ExampleCursorAAA",
+  "total-results": 3,
+  "items": [
+   {
+    "indexed": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       10
+      ]
+     ],
+     "date-time": "2026-10-10T07:42:40Z",
+     "timestamp": 1791618160727,
+     "version": "4.3.4"
+    },
+    "reference-count": 0,
+    "publisher": "Example Publisher",
+    "issue": "1",
+    "content-domain": {
+     "domain": [],
+     "crossmark-restriction": false
+    },
+    "short-container-title": [
+     "Ex. J. Math."
+    ],
+    "published-print": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       2
+      ]
+     ]
+    },
+    "DOI": "10.0000/example.11",
+    "type": "journal-article",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       2
+      ]
+     ],
+     "date-time": "2026-10-02T13:30:35Z",
+     "timestamp": 1791000000000
+    },
+    "page": "1",
+    "source": "Crossref",
+    "is-referenced-by-count": 8,
+    "title": [
+     "An invented family of Diophantine equations"
+    ],
+    "prefix": "10.0000",
+    "volume": "147",
+    "author": [
+     {
+      "given": "Example Author",
+      "family": "A",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "member": "0",
+    "container-title": [
+     "Example Journal of Mathematics"
+    ],
+    "deposited": {
+     "date-parts": [
+      [
+       2018,
+       4,
+       18
+      ]
+     ],
+     "date-time": "2018-04-18T04:33:30Z",
+     "timestamp": 1524026010000
+    },
+    "score": 0.0,
+    "resource": {
+     "primary": {
+      "URL": "https://journal.example.org/article/11"
+     }
+    },
+    "issued": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       2
+      ]
+     ]
+    },
+    "references-count": 0,
+    "journal-issue": {
+     "issue": "1",
+     "published-print": {
+      "date-parts": [
+       [
+        2026,
+        10,
+        2
+       ]
+      ]
+     }
+    },
+    "URL": "https://doi.org/10.0000/example.11",
+    "ISSN": [
+     "0000-0019"
+    ],
+    "issn-type": [
+     {
+      "value": "0000-0019",
+      "type": "print"
+     }
+    ],
+    "published": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       2
+      ]
+     ]
+    },
+    "abstract": "<jats:title>Abstract</jats:title><jats:p>We prove fictional bounds for twisted exponential sums with multiplicative coefficients and discuss an invented application to modular forms.</jats:p>"
+   },
+   {
+    "indexed": {
+     "date-parts": [
+      [
+       2026,
+       9,
+       21
+      ]
+     ],
+     "date-time": "2026-09-21T07:57:08Z",
+     "timestamp": 1789977428966,
+     "version": "4.0.1"
+    },
+    "reference-count": 0,
+    "publisher": "Example Publisher",
+    "issue": "1",
+    "content-domain": {
+     "domain": [],
+     "crossmark-restriction": false
+    },
+    "short-container-title": [
+     "Ex. J. Math."
+    ],
+    "published-print": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       2
+      ]
+     ]
+    },
+    "DOI": "10.0000/example.12",
+    "type": "journal-article",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       2
+      ]
+     ],
+     "date-time": "2026-10-02T13:30:35Z",
+     "timestamp": 1791000000000
+    },
+    "page": "143",
+    "source": "Crossref",
+    "is-referenced-by-count": 66,
+    "title": [
+     "Toy models of modular forms over finite fields"
+    ],
+    "prefix": "10.0000",
+    "volume": "147",
+    "author": [
+     {
+      "given": "Example Author",
+      "family": "B",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Example Author",
+      "family": "C",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "member": "0",
+    "container-title": [
+     "Example Journal of Mathematics"
+    ],
+    "deposited": {
+     "date-parts": [
+      [
+       2018,
+       4,
+       18
+      ]
+     ],
+     "date-time": "2018-04-18T00:06:41Z",
+     "timestamp": 1524010001000
+    },
+    "score": 0.0,
+    "resource": {
+     "primary": {
+      "URL": "https://journal.example.org/article/12"
+     }
+    },
+    "issued": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       2
+      ]
+     ]
+    },
+    "references-count": 0,
+    "journal-issue": {
+     "issue": "1",
+     "published-print": {
+      "date-parts": [
+       [
+        2026,
+        10,
+        2
+       ]
+      ]
+     }
+    },
+    "URL": "https://doi.org/10.0000/example.12",
+    "ISSN": [
+     "0000-0019"
+    ],
+    "issn-type": [
+     {
+      "value": "0000-0019",
+      "type": "print"
+     }
+    ],
+    "published": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       2
+      ]
+     ]
+    },
+    "link": [
+     {
+      "URL": "https://journal.example.org/pdf/12.pdf",
+      "content-type": "application/pdf",
+      "content-version": "vor",
+      "intended-application": "text-mining"
+     }
+    ],
+    "license": [
+     {
+      "start": {
+       "date-parts": [
+        [
+         2026,
+         10,
+         2
+        ]
+       ],
+       "date-time": "2026-10-02T00:00:00Z",
+       "timestamp": 1791000000000
+      },
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "URL": "https://creativecommons.org/licenses/by/4.0/"
+     }
+    ]
+   },
+   {
+    "indexed": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       6
+      ]
+     ],
+     "date-time": "2026-10-06T00:42:45Z",
+     "timestamp": 1791247365387,
+     "version": "4.1.0"
+    },
+    "reference-count": 0,
+    "publisher": "Example Publisher",
+    "issue": "1",
+    "content-domain": {
+     "domain": [],
+     "crossmark-restriction": false
+    },
+    "short-container-title": [
+     "Ex. J. Math."
+    ],
+    "published-print": {
+     "date-parts": [
+      [
+       2026,
+       9
+      ]
+     ]
+    },
+    "DOI": "10.0000/example.13",
+    "type": "journal-article",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       9
+      ]
+     ],
+     "date-time": "2026-10-02T13:30:35Z",
+     "timestamp": 1791000000000
+    },
+    "page": "159",
+    "source": "Crossref",
+    "is-referenced-by-count": 94,
+    "title": [
+     "Fictional bounds for twisted exponential sums"
+    ],
+    "prefix": "10.0000",
+    "volume": "147",
+    "author": [
+     {
+      "given": "Example Author",
+      "family": "D",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "member": "0",
+    "container-title": [
+     "Example Journal of Mathematics"
+    ],
+    "deposited": {
+     "date-parts": [
+      [
+       2018,
+       4,
+       18
+      ]
+     ],
+     "date-time": "2018-04-18T04:36:03Z",
+     "timestamp": 1524026163000
+    },
+    "score": 0.0,
+    "resource": {
+     "primary": {
+      "URL": "https://journal.example.org/article/13"
+     }
+    },
+    "issued": {
+     "date-parts": [
+      [
+       2026,
+       9
+      ]
+     ]
+    },
+    "references-count": 0,
+    "journal-issue": {
+     "issue": "1",
+     "published-print": {
+      "date-parts": [
+       [
+        2026,
+        9
+       ]
+      ]
+     }
+    },
+    "URL": "https://doi.org/10.0000/example.13",
+    "ISSN": [
+     "0000-0019"
+    ],
+    "issn-type": [
+     {
+      "value": "0000-0019",
+      "type": "print"
+     }
+    ],
+    "published": {
+     "date-parts": [
+      [
+       2026,
+       9
+      ]
+     ]
+    }
+   }
+  ],
+  "items-per-page": 3,
+  "query": {
+   "start-index": 0,
+   "search-terms": null
+  }
+ }
+}

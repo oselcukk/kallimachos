@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/graph_edge/1",
+  "title": "GraphEdge",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "source_eid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}$"
+    },
+    "target_eid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}$"
+    },
+    "key": {
+      "type": "string",
+      "default": ""
+    },
+    "method": {
+      "enum": [
+        "doi",
+        "arxiv",
+        "title",
+        "author_year_title"
+      ],
+      "default": "title"
+    },
+    "score": {
+      "type": "number",
+      "default": 0.0
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "required": [
+    "source_eid",
+    "target_eid"
+  ],
+  "description": "One line of ``process/graph.jsonl`` / ``graph_uncertain.jsonl``."
+}

@@ -1,0 +1,69 @@
+# Fictional example profile. No real people, journals or identifiers.
+schema_version: 1
+status: draft
+approved_at: null
+language_hint: en
+field: number-theory
+channels:
+  - id: A
+    name: Analytic number theory
+    priority: 1
+    folder: A-Analytic-Number-Theory
+    keywords:
+      core: [riemann zeta function, dirichlet l-function, prime number theorem, zero density, moments of zeta,
+             sieve method, large sieve, exponential sums, kloosterman sums, bombieri-vinogradov]
+      broad: [prime gaps, mean value theorem, subconvexity, character sum, additive energy]
+      spelling_note: "L-function / L function both accepted"
+    negative:
+      exclude: [zeta potential, riemann solver, finite element]
+      penalty: [machine learning, blockchain]
+    msc: {primary: [11M06, 11M26, 11N05, 11N35], secondary: [11L07, 11L40]}
+    arxiv: {primary: [math.NT], secondary: [math.CA, math.PR]}
+    journals:
+      - {name: Example Journal of Number Theory, issn: ["0000-0001"], openalex_source_id: null, mode: full, yearly_volume: 120, verified: false}
+      - {name: Example Mathematical Proceedings, issn: ["0000-0002"], openalex_source_id: null, mode: topic_filtered, yearly_volume: 800, verified: false}
+    noise_terms: [cosmology, dark energy, control system]
+    rules: []
+  - id: B
+    name: Arithmetic geometry
+    priority: 2
+    folder: B-Arithmetic-Geometry
+    keywords:
+      core: [elliptic curve, modular form, galois representation, rational points, abelian variety, selmer group, iwasawa theory]
+      broad: [height, descent, isogeny, shimura variety]
+    negative: {exclude: [elliptic curve cryptography implementation], penalty: [fpga, side-channel]}
+    msc: {primary: [11G05, 11G10, 11F11], secondary: [14G05]}
+    arxiv: {primary: [math.NT, math.AG], secondary: []}
+    journals: []
+    noise_terms: []
+    rules:
+      - id: hardware_noise
+        stage: drop
+        when: {title_regex: "\\b(FPGA|ASIC|VLSI|IoT|hardware)\\b"}
+        reason: hardware implementation paper
+  - id: C
+    name: Computational number theory
+    priority: 3
+    folder: C-Computational
+    keywords:
+      core: [integer factorization, primality test, lattice reduction, lll algorithm, class group computation, discrete logarithm]
+      broad: [number field sieve, baby-step giant-step, continued fraction algorithm]
+    negative: {exclude: [], penalty: [smart city, healthcare]}
+    msc: {primary: [11Y05, 11Y11, 11Y16], secondary: [11Y40]}
+    arxiv: {primary: [math.NT, cs.CR], secondary: [cs.DS]}
+    journals: []
+    noise_terms: []
+    rules: []
+authors:
+  always_show:
+    - {name: Example Advisor, orcid: null, openalex_id: null, aliases: [E. Advisor]}
+  follow:
+    - {name: Example Researcher One, orcid: null, openalex_id: null, status: candidate, channels: [A]}
+    - {name: Example Researcher Two, orcid: null, openalex_id: null, status: uncertain, channels: [B]}
+seeds:
+  - {title: "An illustrative result on zeros of a Dirichlet series", year: 2019, first_author: Example, doi: null, arxiv: null,
+     openalex_id: null, channels: [A], confidence: medium, source_files: [sample_library/references.bib]}
+foundational: []
+excluded_topics: [cosmology phenomenology, control theory, machine learning applications]
+rules: []
+notes: "Fictional profile used for tests and documentation. No real people."

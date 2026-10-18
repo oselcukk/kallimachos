@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.biorxiv.org/details/biorxiv/10.0000/2026.10.07.000002/na/json"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body_file": "doi.body.json"
+  },
+  "expect": {
+    "version": "2"
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data. Two versions as the API lists every version of a DOI."
+}

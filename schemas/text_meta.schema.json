@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/text_meta/1",
+  "title": "TextMeta",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "eid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}$"
+    },
+    "path": {
+      "type": "string",
+      "default": ""
+    },
+    "pages": {
+      "type": "integer",
+      "default": 0
+    },
+    "chars": {
+      "type": "integer",
+      "default": 0
+    },
+    "ocr": {
+      "enum": [
+        "none",
+        "needed",
+        "done"
+      ],
+      "default": "none"
+    },
+    "alpha_ratio": {
+      "type": "number",
+      "default": 0.0
+    },
+    "spaced_ratio": {
+      "type": "number",
+      "default": 0.0
+    },
+    "note": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "eid"
+  ],
+  "description": "``process/text/<eid>.meta.json``."
+}

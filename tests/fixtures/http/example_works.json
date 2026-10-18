@@ -1,0 +1,5 @@
+{
+  "request": {"method": "GET", "url": "https://api.example.org/works", "params": {"filter": "from_publication_date:2026-10-17", "per-page": "2"}},
+  "response": {"status": 200, "headers": {"Content-Type": "application/json"}, "body_file": "example_works.body.json"},
+  "expect": {"records": 2, "first_title": "On a Fictional Bound for Example Sums"}
+}

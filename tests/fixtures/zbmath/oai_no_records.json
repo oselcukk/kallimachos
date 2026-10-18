@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://oai.zbmath.org/v1/"
+  },
+  "response": {
+    "status": 400,
+    "headers": {
+      "Content-Type": "text/xml; charset=utf-8"
+    },
+    "body_file": "oai_no_records.body.xml"
+  },
+  "expect": {
+    "records": 0
+  },
+  "note": "Synthetic: error shape observed in the reference inventory (zbMATH puts the HTTP code in 'code' and the OAI error name in the text); not captured in this round."
+}

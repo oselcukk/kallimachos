@@ -1,0 +1,18 @@
+{
+  "schema": "kallimachos.predatory_venues/1",
+  "about": "Predatory venue list read by scoring.rules.core.PredatoryVenueRule. Ships only entries backed by a public legal or authoritative finding; users extend it. Matching: 'name_regex' (Python, case-insensitive) against venue or publisher name; 'doi_prefixes' against the DOI prefix; 'issn' exact.",
+  "entries": [
+    {
+      "id": "omics",
+      "kind": "publisher",
+      "name_regex": "\\bOMICS\\b",
+      "doi_prefixes": [],
+      "issn": [],
+      "sources": [
+        "https://www.infodocket.com/2019/04/04/court-rules-in-ftcs-favor-against-predatory-academic-publisher-omics-group-imposes-50-1-million-judgment-against-defendants-that-made-false-claims-and-hid-publishing-fees/",
+        "https://www.chemistryworld.com/news/predatory-publisher-omics-fined-50-million-by-us-court-for-defrauding-scientists/3010348.article"
+      ],
+      "note": "US District Court for the District of Nevada, FTC v. OMICS Group Inc., summary judgment 2019-03-29."
+    }
+  ]
+}

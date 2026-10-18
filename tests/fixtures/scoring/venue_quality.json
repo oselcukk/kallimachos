@@ -1,0 +1,5 @@
+{
+  "1111-0001": {"quartile_best": 1, "quartile_by_year": {"2024": 1, "2025": 2}, "discontinued": false, "source": "user list"},
+  "1111-0003": {"quartile_best": 4, "quartile_by_year": {}, "discontinued": false, "source": "user list"},
+  "1111-0004": {"quartile_best": 2, "quartile_by_year": {}, "discontinued": true, "source": "user list"}
+}

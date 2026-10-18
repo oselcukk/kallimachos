@@ -1,0 +1,25 @@
+{
+ "message": {
+  "items": [
+   {
+    "DOI": "10.0000/example.10",
+    "title": [
+     "Fictional bounds for additive energy of sparse sets"
+    ],
+    "author": [
+     {
+      "family": "F",
+      "given": "Example Author"
+     }
+    ],
+    "issued": {
+     "date-parts": [
+      [
+       2022
+      ]
+     ]
+    }
+   }
+  ]
+ }
+}

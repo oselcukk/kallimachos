@@ -1,0 +1,92 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kallimachos"
+dynamic = ["version"]
+description = "Scan, filter, score, notify, archive and read research literature with an agent-friendly CLI."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "oselcukk" }]
+keywords = ["literature", "arxiv", "openalex", "crossref", "research", "zotero", "obsidian"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Science/Research",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering",
+]
+# Runtime dependencies are deliberately minimal:
+#   pyyaml      - config.yaml / profile.yaml / answers.yaml are YAML.
+#   jsonschema  - every state file has a JSON Schema under schemas/ that is validated on write.
+# HTTP uses urllib from the standard library (one shared Http layer); RSS/Atom uses xml.etree.
+dependencies = [
+  "pyyaml>=6.0",
+  "jsonschema>=4.18",
+  "keyring>=24",     # OS keychain for secrets
+  "rapidfuzz>=3.0",  # fuzzy quote and citation matching
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8.0",
+]
+dev = [
+  "kallimachos[test]",
+  "ruff>=0.6",
+  "mypy>=1.10",
+  "types-PyYAML",
+  "types-jsonschema",
+]
+
+[project.scripts]
+kallimachos = "kallimachos.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/oselcukk/kallimachos"
+Issues = "https://github.com/oselcukk/kallimachos/issues"
+
+[tool.hatch.version]
+path = "src/kallimachos/version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kallimachos"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/", "schemas/", "tests/", "docs/", "profiles/", "config.example.yaml", "LICENSE", "README.md", "README.tr.md"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "N", "SIM", "RUF"]
+ignore = [
+  "RUF012",  # mutable class attributes: dataclass defaults are handled by field(default_factory=...)
+  "N818",    # exit-code exceptions are named after the condition (LockHeld, ApprovalRequired)
+]
+allowed-confusables = ["ı"]  # dotless i is handled on purpose in records.normalize and the sensitive-path regex
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["RUF001", "RUF003"]  # tests deliberately contain non-ASCII fixtures for normalisation
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+files = ["src"]
+mypy_path = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+xfail_strict = true
+filterwarnings = ["error"]

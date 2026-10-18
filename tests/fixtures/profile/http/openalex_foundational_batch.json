@@ -1,0 +1,17 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.openalex.org/works",
+  "params": {
+   "filter": "openalex_id:W2000000002|W2000000001|W2000000003",
+   "per-page": "50"
+  }
+ },
+ "response": {
+  "status": 200,
+  "headers": {
+   "Content-Type": "application/json"
+  },
+  "body_file": "openalex_foundational_batch.body.json"
+ }
+}

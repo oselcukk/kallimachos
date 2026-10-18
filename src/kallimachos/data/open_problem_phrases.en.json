@@ -1,0 +1,18 @@
+{
+  "language": "en",
+  "description": "Regular expressions (case-insensitive) that signal an open problem, question or conjecture in the running text. process.check reports a page with a hit that no open-type item or false_alarm covers.",
+  "patterns": [
+    "\\bopen (?:problem|question)s?\\b",
+    "\\bremains? (?:an )?open\\b",
+    "\\bis (?:still )?(?:an )?open\\b",
+    "\\bis (?:still )?unknown\\b",
+    "\\bwe do not know\\b",
+    "\\bit would be interesting\\b",
+    "\\bwe conjecture\\b",
+    "\\bquestion (?:of )?whether\\b",
+    "\\bthe following question\\b",
+    "\\bunsolved\\b",
+    "\\bnot (?:yet )?known whether\\b",
+    "\\bwe leave (?:this|it) (?:as an )?open\\b"
+  ]
+}

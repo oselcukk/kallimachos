@@ -1,0 +1,22 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://export.arxiv.org/api/query",
+    "params": {
+      "id_list": "2610.00002",
+      "max_results": "1"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/atom+xml; charset=utf-8"
+    },
+    "body_file": "id_list.body.xml"
+  },
+  "expect": {
+    "records": 1,
+    "version": "v2"
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data."
+}

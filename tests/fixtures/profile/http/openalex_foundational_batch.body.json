@@ -1,0 +1,94 @@
+{
+ "results": [
+  {
+   "id": "https://openalex.org/W2000000001",
+   "doi": null,
+   "display_name": "Fictional foundations of sieve theory",
+   "title": "Fictional foundations of sieve theory",
+   "publication_year": 1999,
+   "publication_date": "1999-01-01",
+   "type": "article",
+   "authorships": [
+    {
+     "author": {
+      "id": "https://openalex.org/A5000000099",
+      "display_name": "Example Author Z"
+     }
+    }
+   ],
+   "primary_location": {
+    "source": {
+     "id": "https://openalex.org/S9000000001",
+     "display_name": "Example Journal of Number Theory",
+     "issn_l": "0000-0001",
+     "issn": [
+      "0000-0001"
+     ]
+    }
+   },
+   "topics": [],
+   "referenced_works": [],
+   "cited_by_count": 100
+  },
+  {
+   "id": "https://openalex.org/W2000000002",
+   "doi": null,
+   "display_name": "A fictional survey of exponential sums",
+   "title": "A fictional survey of exponential sums",
+   "publication_year": 1999,
+   "publication_date": "1999-01-01",
+   "type": "article",
+   "authorships": [
+    {
+     "author": {
+      "id": "https://openalex.org/A5000000099",
+      "display_name": "Example Author Z"
+     }
+    }
+   ],
+   "primary_location": {
+    "source": {
+     "id": "https://openalex.org/S9000000001",
+     "display_name": "Example Journal of Number Theory",
+     "issn_l": "0000-0001",
+     "issn": [
+      "0000-0001"
+     ]
+    }
+   },
+   "topics": [],
+   "referenced_works": [],
+   "cited_by_count": 100
+  },
+  {
+   "id": "https://openalex.org/W2000000003",
+   "doi": null,
+   "display_name": "Fictional notes on Dirichlet series",
+   "title": "Fictional notes on Dirichlet series",
+   "publication_year": 1999,
+   "publication_date": "1999-01-01",
+   "type": "article",
+   "authorships": [
+    {
+     "author": {
+      "id": "https://openalex.org/A5000000099",
+      "display_name": "Example Author Z"
+     }
+    }
+   ],
+   "primary_location": {
+    "source": {
+     "id": "https://openalex.org/S9000000001",
+     "display_name": "Example Journal of Number Theory",
+     "issn_l": "0000-0001",
+     "issn": [
+      "0000-0001"
+     ]
+    }
+   },
+   "topics": [],
+   "referenced_works": [],
+   "cited_by_count": 100
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/feedback/1",
+  "title": "FeedbackEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}-(daily|weekly)$"
+    },
+    "item_no": {
+      "type": "string",
+      "default": ""
+    },
+    "candidate_id": {
+      "type": "string",
+      "default": ""
+    },
+    "tag": {
+      "type": "string",
+      "enum": [
+        "good",
+        "irrelevant",
+        "read",
+        "ask",
+        "archive"
+      ],
+      "default": "good"
+    },
+    "note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "telegram",
+        "imap",
+        "markdown",
+        "cli"
+      ],
+      "default": "cli"
+    },
+    "resolved_via": {
+      "enum": [
+        "selection",
+        "run_no"
+      ],
+      "default": "selection"
+    }
+  },
+  "required": [
+    "at",
+    "run_id"
+  ],
+  "description": "One line of ``state/feedback.jsonl``."
+}

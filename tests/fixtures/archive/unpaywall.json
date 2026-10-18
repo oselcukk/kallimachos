@@ -1,0 +1,6 @@
+{"doi": "10.0000/example.1", "is_oa": true,
+ "best_oa_location": {"url_for_pdf": "https://repository.example.org/example1.pdf", "license": "cc-by"},
+ "oa_locations": [
+   {"url_for_pdf": "https://repository.example.org/example1.pdf"},
+   {"url_for_pdf": null, "url_for_landing_page": "https://journal.example.org/article/1"}
+ ]}

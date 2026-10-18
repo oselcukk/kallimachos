@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://journal.example.org/search.rss"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/rss+xml"
+    },
+    "body_file": "rss2.body.xml"
+  },
+  "expect": {
+    "records_in_window_2026-10-11_2026-10-18": 2
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data. Real quirks kept: unescaped HTML/JATS inside <description>, ISO pubDate."
+}

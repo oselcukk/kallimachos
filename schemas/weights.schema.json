@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/weights/1",
+  "title": "Weights",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "enum": [
+        "kallimachos.weights/1"
+      ],
+      "default": "kallimachos.weights/1"
+    },
+    "updated_at": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "channel": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/MultWeight"
+      }
+    },
+    "author": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/BonusWeight"
+      }
+    },
+    "venue": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/MultWeight"
+      }
+    },
+    "phrase": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/MultWeight"
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/WeightChange"
+      }
+    }
+  },
+  "description": "``weights.json`` (schema ``kallimachos.weights/1``).",
+  "$defs": {
+    "BonusWeight": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bonus": {
+          "type": "number",
+          "default": 0.0
+        }
+      },
+      "description": "BonusWeight(bonus: 'float' = 0.0)"
+    },
+    "MultWeight": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mult": {
+          "type": "number",
+          "default": 1.0
+        }
+      },
+      "description": "MultWeight(mult: 'float' = 1.0)"
+    },
+    "WeightChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "change": {
+          "type": "string"
+        },
+        "evidence_counts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": [
+        "at",
+        "change"
+      ],
+      "description": "WeightChange(at: '_dt.datetime', change: 'str', evidence_counts: 'dict[str, int]' = <factory>)"
+    }
+  }
+}

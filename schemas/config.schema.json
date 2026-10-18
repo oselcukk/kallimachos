@@ -1,0 +1,1712 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/config/1",
+  "title": "Config",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "default": 1
+    },
+    "language": {
+      "type": "string",
+      "default": "en"
+    },
+    "timezone": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "data_dir": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "sources": {
+      "$ref": "#/$defs/SourcesConfig"
+    },
+    "scoring": {
+      "$ref": "#/$defs/ScoringConfig"
+    },
+    "ranking": {
+      "$ref": "#/$defs/RankingConfig"
+    },
+    "rescan": {
+      "$ref": "#/$defs/RescanConfig"
+    },
+    "model": {
+      "$ref": "#/$defs/ModelConfig"
+    },
+    "notify": {
+      "$ref": "#/$defs/NotifyConfig"
+    },
+    "feedback": {
+      "$ref": "#/$defs/FeedbackConfig"
+    },
+    "archive": {
+      "$ref": "#/$defs/ArchiveConfig"
+    },
+    "process": {
+      "$ref": "#/$defs/ProcessConfig"
+    },
+    "notes": {
+      "$ref": "#/$defs/NotesConfig"
+    },
+    "bridge": {
+      "$ref": "#/$defs/BridgeConfig"
+    },
+    "schedule": {
+      "$ref": "#/$defs/ScheduleConfig"
+    },
+    "hooks": {
+      "$ref": "#/$defs/HooksConfig"
+    },
+    "privacy": {
+      "$ref": "#/$defs/PrivacyConfig"
+    },
+    "profile": {
+      "$ref": "#/$defs/ProfileBuildConfig"
+    }
+  },
+  "description": "Root of ``config.yaml``. Secrets never live here, only ``*_ref`` references.",
+  "$defs": {
+    "ArchiveConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "root": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "naming_template": {
+          "type": "string",
+          "default": "{authors}_{year}_{short_title}[_arXiv-{arxiv}{version}]"
+        },
+        "max_authors_in_name": {
+          "type": "integer",
+          "default": 3
+        },
+        "short_title_words": {
+          "type": "integer",
+          "default": 7
+        },
+        "short_title_chars": {
+          "type": "integer",
+          "default": 60
+        },
+        "max_pdf_mb": {
+          "type": "integer",
+          "default": 150
+        },
+        "existing_roots": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "existing_exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sensitive_path_regex": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "ArchiveConfig(enabled: 'bool' = False, root: 'str | None' = None, naming_template: 'str' = '{authors}_{year}_{short_title}[_arXiv-{arxiv}{version}]', max_authors_in_name: 'int' = 3, short_title_words: 'int' = 7, short_title_chars: 'int' = 60, max_pdf_mb: 'int' = 150, existing_roots: 'list[str]' = <factory>, existing_exclude: 'list[str]' = <factory>, sensitive_path_regex: 'list[str]' = <factory>)"
+    },
+    "ArxivConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "window_days": {
+          "type": "integer",
+          "default": 4
+        },
+        "page_size": {
+          "type": "integer",
+          "default": 1000
+        },
+        "max_records": {
+          "type": "integer",
+          "default": 12000
+        },
+        "min_interval_s": {
+          "type": "number",
+          "default": 3.1
+        },
+        "base_url": {
+          "type": "string",
+          "default": "https://export.arxiv.org/api/query"
+        }
+      },
+      "description": "ArxivConfig(enabled: 'bool' = True, window_days: 'int' = 4, page_size: 'int' = 1000, max_records: 'int' = 12000, min_interval_s: 'float' = 3.1, base_url: 'str' = 'https://export.arxiv.org/api/query')"
+    },
+    "BiorxivConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "servers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "biorxiv",
+              "medrxiv"
+            ]
+          }
+        },
+        "window_days": {
+          "type": "integer",
+          "default": 2
+        },
+        "min_interval_s": {
+          "type": "number",
+          "default": 1.0
+        }
+      },
+      "description": "BiorxivConfig(enabled: 'bool' = False, servers: \"list[Literal['biorxiv', 'medrxiv']]\" = <factory>, window_days: 'int' = 2, min_interval_s: 'float' = 1.0)"
+    },
+    "BridgeConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "mode": {
+          "enum": [
+            "pull"
+          ],
+          "default": "pull"
+        },
+        "remote": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "remote_data_dir": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "local_archive_root": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "ssh_options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "retry": {
+          "type": "integer",
+          "default": 1
+        }
+      },
+      "description": "Optional server -> computer delivery bridge."
+    },
+    "ChunkConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "size": {
+          "type": "integer",
+          "default": 100
+        },
+        "group_size": {
+          "type": "integer",
+          "default": 3
+        }
+      },
+      "description": "ChunkConfig(size: 'int' = 100, group_size: 'int' = 3)"
+    },
+    "CrossrefConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "index_window_days": {
+          "type": "integer",
+          "default": 1
+        },
+        "created_window_days": {
+          "type": "integer",
+          "default": 30
+        },
+        "rows": {
+          "type": "integer",
+          "default": 200
+        },
+        "min_interval_s": {
+          "type": "number",
+          "default": 0.6
+        },
+        "mailto_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "description": "CrossrefConfig(enabled: 'bool' = True, index_window_days: 'int' = 1, created_window_days: 'int' = 30, rows: 'int' = 200, min_interval_s: 'float' = 0.6, mailto_ref: 'SecretRef' = None)"
+    },
+    "EmailNotifyConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "smtp_host": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "smtp_port": {
+          "type": "integer",
+          "default": 587
+        },
+        "security": {
+          "enum": [
+            "starttls",
+            "ssl"
+          ],
+          "default": "starttls"
+        },
+        "username": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "password_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "from": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "to": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confirmed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "imap_host": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "imap_port": {
+          "type": "integer",
+          "default": 993
+        },
+        "imap_folder": {
+          "type": "string",
+          "default": "INBOX"
+        }
+      },
+      "description": "EmailNotifyConfig(smtp_host: 'str | None' = None, smtp_port: 'int' = 587, security: \"Literal['starttls', 'ssl']\" = 'starttls', username: 'str | None' = None, password_ref: 'SecretRef' = None, from_: 'str | None' = None, to: 'list[str]' = <factory>, confirmed_at: '_dt.datetime | None' = None, imap_host: 'str | None' = None, imap_port: 'int' = 993, imap_folder: 'str' = 'INBOX')"
+    },
+    "FeedbackConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "channels": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "telegram",
+              "imap",
+              "markdown"
+            ]
+          }
+        },
+        "weights": {
+          "$ref": "#/$defs/WeightLearningConfig"
+        }
+      },
+      "description": "FeedbackConfig(channels: \"list[Literal['telegram', 'imap', 'markdown']]\" = <factory>, weights: 'WeightLearningConfig' = <factory>)"
+    },
+    "HooksConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_start": {
+          "type": "boolean",
+          "default": true
+        },
+        "guard": {
+          "type": "boolean",
+          "default": true
+        },
+        "summary_max_chars": {
+          "type": "integer",
+          "minimum": 120,
+          "maximum": 2000,
+          "default": 600
+        }
+      },
+      "description": "Optional agent hooks (``kallimachos hooks install``): a short SessionStart status"
+    },
+    "IacrEprintConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "window_days": {
+          "type": "integer",
+          "default": 4
+        },
+        "min_interval_s": {
+          "type": "number",
+          "default": 1.0
+        }
+      },
+      "description": "IacrEprintConfig(enabled: 'bool' = False, window_days: 'int' = 4, min_interval_s: 'float' = 1.0)"
+    },
+    "MarkdownNotifyConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "checkbox_feedback": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "description": "MarkdownNotifyConfig(path: 'str | None' = None, checkbox_feedback: 'bool' = True)"
+    },
+    "MessageBudget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_utf16": {
+          "type": "integer",
+          "default": 3600
+        },
+        "limit_utf16": {
+          "type": "integer",
+          "default": 3900
+        }
+      },
+      "description": "UTF-16 budget for the notification message."
+    },
+    "ModelConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "provider": {
+          "enum": [
+            "claude",
+            "codex",
+            "hermes",
+            "none"
+          ],
+          "default": "none"
+        },
+        "command": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "timeout_s": {
+          "type": "integer",
+          "default": 600
+        },
+        "prompt_dir": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "description": "ModelConfig(provider: \"Literal['claude', 'codex', 'hermes', 'none']\" = 'none', command: 'str | None' = None, timeout_s: 'int' = 600, prompt_dir: 'str | None' = None)"
+    },
+    "NotesConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "enum": [
+            "avenox",
+            "plain"
+          ],
+          "default": "plain"
+        },
+        "vault_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "literature_folder": {
+          "type": "string",
+          "default": "Literature"
+        },
+        "link_style": {
+          "anyOf": [
+            {
+              "enum": [
+                "wikilink",
+                "markdown"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "language": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "frontmatter": {
+          "$ref": "#/$defs/NotesFrontmatterConfig"
+        },
+        "etal_suffix": {
+          "type": "string",
+          "default": "etal"
+        },
+        "personal_relation_section": {
+          "type": "boolean",
+          "default": true
+        },
+        "personal_profile_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "cluster_summary_name": {
+          "type": "string",
+          "default": "_Cluster-Summary.md"
+        },
+        "reading_queue_file": {
+          "type": "string",
+          "default": "_Reading-Queue.md"
+        },
+        "task_owner": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "description": "NotesConfig(target: \"Literal['avenox', 'plain']\" = 'plain', vault_path: 'str | None' = None, literature_folder: 'str' = 'Literature', link_style: \"Literal['wikilink', 'markdown'] | None\" = None, language: 'str | None' = None, frontmatter: 'NotesFrontmatterConfig' = <factory>, etal_suffix: 'str' = 'etal', personal_relation_section: 'bool' = True, personal_profile_text: 'str | None' = None, cluster_summary_name: 'str' = '_Cluster-Summary.md', reading_queue_file: 'str' = '_Reading-Queue.md', task_owner: 'str | None' = None)"
+    },
+    "NotesFrontmatterConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "default": "note"
+        },
+        "project": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "visibility": {
+          "enum": [
+            "public",
+            "internal",
+            "private"
+          ],
+          "default": "internal"
+        },
+        "extra": {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      },
+      "description": "NotesFrontmatterConfig(kind: 'str' = 'note', project: 'str | None' = None, visibility: \"Literal['public', 'internal', 'private']\" = 'internal', extra: 'dict[str, Any]' = <factory>)"
+    },
+    "NotifyConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "silent_when_empty": {
+          "type": "boolean",
+          "default": false
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "markdown",
+              "telegram",
+              "email"
+            ]
+          }
+        },
+        "markdown": {
+          "$ref": "#/$defs/MarkdownNotifyConfig"
+        },
+        "telegram": {
+          "$ref": "#/$defs/TelegramNotifyConfig"
+        },
+        "email": {
+          "$ref": "#/$defs/EmailNotifyConfig"
+        },
+        "budget": {
+          "$ref": "#/$defs/MessageBudget"
+        }
+      },
+      "description": "NotifyConfig(silent_when_empty: 'bool' = False, channels: \"list[Literal['markdown', 'telegram', 'email']]\" = <factory>, markdown: 'MarkdownNotifyConfig' = <factory>, telegram: 'TelegramNotifyConfig' = <factory>, email: 'EmailNotifyConfig' = <factory>, budget: 'MessageBudget' = <factory>)"
+    },
+    "OpenAlexConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "window_days": {
+          "type": "integer",
+          "default": 1
+        },
+        "per_page": {
+          "type": "integer",
+          "default": 200
+        },
+        "max_pages": {
+          "type": "integer",
+          "default": 2
+        },
+        "min_interval_s": {
+          "type": "number",
+          "default": 0.15
+        },
+        "daily_budget_usd": {
+          "type": "number",
+          "default": 0.2
+        },
+        "weekly_extra_usd": {
+          "type": "number",
+          "default": 0.3
+        },
+        "daily_cap_usd": {
+          "type": "number",
+          "default": 0.9
+        },
+        "unit_cost_usd": {
+          "$ref": "#/$defs/OpenAlexUnitCost"
+        },
+        "api_key_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "premium_filters": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "description": "OpenAlexConfig(enabled: 'bool' = True, window_days: 'int' = 1, per_page: 'int' = 200, max_pages: 'int' = 2, min_interval_s: 'float' = 0.15, daily_budget_usd: 'float' = 0.2, weekly_extra_usd: 'float' = 0.3, daily_cap_usd: 'float' = 0.9, unit_cost_usd: 'OpenAlexUnitCost' = <factory>, api_key_ref: 'SecretRef' = None, premium_filters: 'bool' = False)"
+    },
+    "OpenAlexUnitCost": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "list": {
+          "type": "number",
+          "default": 0.0001
+        },
+        "search": {
+          "type": "number",
+          "default": 0.001
+        },
+        "single": {
+          "type": "number",
+          "default": 0.0
+        }
+      },
+      "description": "USD per call by request kind."
+    },
+    "OrcidConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "min_interval_s": {
+          "type": "number",
+          "default": 0.1
+        }
+      },
+      "description": "Profile building only."
+    },
+    "PrivacyConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "send_only_strong_ids": {
+          "enum": [
+            true
+          ],
+          "default": true
+        },
+        "personal_data_in_logs": {
+          "enum": [
+            false
+          ],
+          "default": false
+        }
+      },
+      "description": "Fixed values: the shape itself rejects any other value."
+    },
+    "ProcessConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "text_tool": {
+          "enum": [
+            "pdftotext"
+          ],
+          "default": "pdftotext"
+        },
+        "ocr_tool": {
+          "enum": [
+            "ocrmypdf",
+            "none"
+          ],
+          "default": "none"
+        },
+        "ocr_langs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workers": {
+          "type": "integer",
+          "default": 4
+        },
+        "quote_threshold": {
+          "type": "integer",
+          "default": 90
+        },
+        "book_pages": {
+          "type": "integer",
+          "default": 150
+        },
+        "chunk": {
+          "$ref": "#/$defs/ChunkConfig"
+        },
+        "models": {
+          "$ref": "#/$defs/ProcessModelsConfig"
+        },
+        "verify_sample_ratio": {
+          "type": "number",
+          "default": 0.1
+        },
+        "zotero": {
+          "$ref": "#/$defs/ZoteroConfig"
+        }
+      },
+      "description": "ProcessConfig(enabled: 'bool' = False, text_tool: \"Literal['pdftotext']\" = 'pdftotext', ocr_tool: \"Literal['ocrmypdf', 'none']\" = 'none', ocr_langs: 'list[str]' = <factory>, workers: 'int' = 4, quote_threshold: 'int' = 90, book_pages: 'int' = 150, chunk: 'ChunkConfig' = <factory>, models: 'ProcessModelsConfig' = <factory>, verify_sample_ratio: 'float' = 0.1, zotero: 'ZoteroConfig' = <factory>)"
+    },
+    "ProcessModelsConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reader": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "recorder": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "verifier": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "cluster": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "description": "Role -> model name. Documentation only; the agent lead applies roles."
+    },
+    "ProfileBuildConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "match": {
+          "$ref": "#/$defs/ProfileMatchConfig"
+        },
+        "journal_full_max_yearly_volume": {
+          "type": "integer",
+          "default": 300
+        },
+        "min_core_terms_warning": {
+          "type": "integer",
+          "default": 5
+        },
+        "foundational_max": {
+          "type": "integer",
+          "default": 200
+        }
+      },
+      "description": "ProfileBuildConfig(match: 'ProfileMatchConfig' = <factory>, journal_full_max_yearly_volume: 'int' = 300, min_core_terms_warning: 'int' = 5, foundational_max: 'int' = 200)"
+    },
+    "ProfileMatchConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "autocomplete_min_sim": {
+          "type": "number",
+          "default": 0.7
+        },
+        "high_sim": {
+          "type": "number",
+          "default": 0.92
+        },
+        "medium_sim": {
+          "type": "number",
+          "default": 0.85
+        },
+        "medium_sim_strict": {
+          "type": "number",
+          "default": 0.97
+        },
+        "low_sim": {
+          "type": "number",
+          "default": 0.75
+        },
+        "medium_year_tolerance": {
+          "type": "integer",
+          "default": 1
+        },
+        "strict_year_tolerance": {
+          "type": "integer",
+          "default": 3
+        },
+        "old_year_gap": {
+          "type": "integer",
+          "default": 10
+        },
+        "old_year_gap_sim": {
+          "type": "number",
+          "default": 0.95
+        }
+      },
+      "description": "Match confidence thresholds for profile building."
+    },
+    "PubmedConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "window_days": {
+          "type": "integer",
+          "default": 2
+        },
+        "min_interval_s": {
+          "type": "number",
+          "default": 0.35
+        },
+        "api_key_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "tool": {
+          "type": "string",
+          "default": "kallimachos"
+        },
+        "email_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "description": "PubmedConfig(enabled: 'bool' = False, window_days: 'int' = 2, min_interval_s: 'float' = 0.35, api_key_ref: 'SecretRef' = None, tool: 'str' = 'kallimachos', email_ref: 'SecretRef' = None)"
+    },
+    "RankingConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "candidates": {
+          "type": "integer",
+          "default": 30
+        },
+        "main_items": {
+          "type": "integer",
+          "default": 10
+        },
+        "near_miss": {
+          "type": "integer",
+          "default": 3
+        },
+        "journal_quota": {
+          "type": "integer",
+          "default": 2
+        },
+        "journal_quota_pool": {
+          "type": "integer",
+          "default": 6
+        },
+        "abstract_full_first": {
+          "type": "integer",
+          "default": 15
+        },
+        "abstract_max_chars": {
+          "type": "integer",
+          "default": 1500
+        },
+        "abstract_short_chars": {
+          "type": "integer",
+          "default": 300
+        }
+      },
+      "description": "RankingConfig(candidates: 'int' = 30, main_items: 'int' = 10, near_miss: 'int' = 3, journal_quota: 'int' = 2, journal_quota_pool: 'int' = 6, abstract_full_first: 'int' = 15, abstract_max_chars: 'int' = 1500, abstract_short_chars: 'int' = 300)"
+    },
+    "RescanConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "unshown_grace_days": {
+          "type": "integer",
+          "default": 7
+        }
+      },
+      "description": "RescanConfig(unshown_grace_days: 'int' = 7)"
+    },
+    "RssConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "window_days": {
+          "type": "integer",
+          "default": 7
+        },
+        "min_interval_s": {
+          "type": "number",
+          "default": 1.0
+        },
+        "feeds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RssFeed"
+          }
+        }
+      },
+      "description": "RssConfig(enabled: 'bool' = False, window_days: 'int' = 7, min_interval_s: 'float' = 1.0, feeds: 'list[RssFeed]' = <factory>)"
+    },
+    "RssFeed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "channel_hint": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "name",
+        "url"
+      ],
+      "description": "RssFeed(name: 'str', url: 'str', channel_hint: 'str | None' = None)"
+    },
+    "ScheduleConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "backend": {
+          "enum": [
+            "local",
+            "hermes",
+            "github",
+            "none"
+          ],
+          "default": "local"
+        },
+        "daily_at": {
+          "type": "string",
+          "pattern": "^[0-2][0-9]:[0-5][0-9]$",
+          "default": "07:30"
+        },
+        "weekly_on": {
+          "enum": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ],
+          "default": "sun"
+        },
+        "weekly_at": {
+          "type": "string",
+          "pattern": "^[0-2][0-9]:[0-5][0-9]$",
+          "default": "09:30"
+        },
+        "archive_at": {
+          "type": "string",
+          "pattern": "^[0-2][0-9]:[0-5][0-9]$",
+          "default": "06:30"
+        },
+        "catch_up_missed": {
+          "type": "boolean",
+          "default": true
+        },
+        "max_catch_up_days": {
+          "type": "integer",
+          "default": 3
+        }
+      },
+      "description": "ScheduleConfig(backend: \"Literal['local', 'hermes', 'github', 'none']\" = 'local', daily_at: 'str' = '07:30', weekly_on: 'Weekday' = 'sun', weekly_at: 'str' = '09:30', archive_at: 'str' = '06:30', catch_up_missed: 'bool' = True, max_catch_up_days: 'int' = 3)"
+    },
+    "ScholarImapConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "host": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "port": {
+          "type": "integer",
+          "default": 993
+        },
+        "user_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "password_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "folder": {
+          "type": "string",
+          "default": "INBOX"
+        },
+        "sender_filter": {
+          "type": "string",
+          "default": "scholaralerts-noreply@google.com"
+        }
+      },
+      "description": "ScholarImapConfig(enabled: 'bool' = False, host: 'str | None' = None, port: 'int' = 993, user_ref: 'SecretRef' = None, password_ref: 'SecretRef' = None, folder: 'str' = 'INBOX', sender_filter: 'str' = 'scholaralerts-noreply@google.com')"
+    },
+    "ScoringConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "weights": {
+          "$ref": "#/$defs/ScoringWeights"
+        },
+        "priority_multiplier": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          },
+          "propertyNames": {
+            "pattern": "^-?[0-9]+$"
+          }
+        },
+        "threshold": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          },
+          "propertyNames": {
+            "pattern": "^-?[0-9]+$"
+          }
+        },
+        "noise_factor": {
+          "type": "number",
+          "default": 0.35
+        },
+        "noise_abstract_min_terms": {
+          "type": "integer",
+          "default": 2
+        },
+        "certain_pass_factor": {
+          "type": "number",
+          "default": 1.5
+        },
+        "certain_pass_factor_by_channel": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "certain_pass_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "math",
+              "math_phys",
+              "physics",
+              "non_physics",
+              "unknown"
+            ]
+          }
+        },
+        "paratext_extra": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "repository_venues_extra": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "venue_indicator": {
+          "$ref": "#/$defs/VenueIndicatorConfig"
+        }
+      },
+      "description": "ScoringConfig(weights: 'ScoringWeights' = <factory>, priority_multiplier: 'dict[int, float]' = <factory>, threshold: 'dict[int, float]' = <factory>, noise_factor: 'float' = 0.35, noise_abstract_min_terms: 'int' = 2, certain_pass_factor: 'float' = 1.5, certain_pass_factor_by_channel: 'dict[str, float]' = <factory>, certain_pass_fields: 'list[FieldClass]' = <factory>, paratext_extra: 'list[str]' = <factory>, repository_venues_extra: 'list[str]' = <factory>, venue_indicator: 'VenueIndicatorConfig' = <factory>)"
+    },
+    "ScoringWeights": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title_core": {
+          "type": "number",
+          "default": 6
+        },
+        "abstract_core": {
+          "type": "number",
+          "default": 3
+        },
+        "title_broad": {
+          "type": "number",
+          "default": 2
+        },
+        "abstract_broad": {
+          "type": "number",
+          "default": 1
+        },
+        "channel_cap": {
+          "type": "number",
+          "default": 18
+        },
+        "penalty": {
+          "type": "number",
+          "default": -3
+        },
+        "penalty_floor": {
+          "type": "number",
+          "default": -6
+        },
+        "arxiv_primary_category": {
+          "type": "number",
+          "default": 1.0
+        },
+        "arxiv_secondary_category": {
+          "type": "number",
+          "default": 0.5
+        },
+        "msc_primary_main": {
+          "type": "number",
+          "default": 3
+        },
+        "msc_primary": {
+          "type": "number",
+          "default": 1.5
+        },
+        "msc_secondary": {
+          "type": "number",
+          "default": 0.5
+        },
+        "follow_author": {
+          "type": "number",
+          "default": 5
+        },
+        "always_show_author": {
+          "type": "number",
+          "default": 100
+        },
+        "seed_citation": {
+          "type": "number",
+          "default": 4
+        },
+        "seed_citation_extra": {
+          "type": "number",
+          "default": 1
+        },
+        "seed_citation_cap": {
+          "type": "number",
+          "default": 7
+        },
+        "foundational_citation": {
+          "type": "number",
+          "default": 3
+        },
+        "foundational_citation_extra": {
+          "type": "number",
+          "default": 1
+        },
+        "foundational_citation_cap": {
+          "type": "number",
+          "default": 5
+        },
+        "full_journal": {
+          "type": "number",
+          "default": 3
+        },
+        "arxiv_category_mismatch_factor": {
+          "type": "number",
+          "default": 0.6
+        }
+      },
+      "description": "Numeric weights of the topic score."
+    },
+    "SemanticScholarConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "min_interval_s": {
+          "type": "number",
+          "default": 1.2
+        },
+        "api_key_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "description": "SemanticScholarConfig(enabled: 'bool' = False, min_interval_s: 'float' = 1.2, api_key_ref: 'SecretRef' = None)"
+    },
+    "SourcesConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "arxiv": {
+          "$ref": "#/$defs/ArxivConfig"
+        },
+        "iacr_eprint": {
+          "$ref": "#/$defs/IacrEprintConfig"
+        },
+        "crossref": {
+          "$ref": "#/$defs/CrossrefConfig"
+        },
+        "openalex": {
+          "$ref": "#/$defs/OpenAlexConfig"
+        },
+        "semantic_scholar": {
+          "$ref": "#/$defs/SemanticScholarConfig"
+        },
+        "zbmath": {
+          "$ref": "#/$defs/ZbmathConfig"
+        },
+        "pubmed": {
+          "$ref": "#/$defs/PubmedConfig"
+        },
+        "biorxiv": {
+          "$ref": "#/$defs/BiorxivConfig"
+        },
+        "rss": {
+          "$ref": "#/$defs/RssConfig"
+        },
+        "scholar_imap": {
+          "$ref": "#/$defs/ScholarImapConfig"
+        },
+        "unpaywall": {
+          "$ref": "#/$defs/UnpaywallConfig"
+        },
+        "orcid": {
+          "$ref": "#/$defs/OrcidConfig"
+        }
+      },
+      "description": "SourcesConfig(arxiv: 'ArxivConfig' = <factory>, iacr_eprint: 'IacrEprintConfig' = <factory>, crossref: 'CrossrefConfig' = <factory>, openalex: 'OpenAlexConfig' = <factory>, semantic_scholar: 'SemanticScholarConfig' = <factory>, zbmath: 'ZbmathConfig' = <factory>, pubmed: 'PubmedConfig' = <factory>, biorxiv: 'BiorxivConfig' = <factory>, rss: 'RssConfig' = <factory>, scholar_imap: 'ScholarImapConfig' = <factory>, unpaywall: 'UnpaywallConfig' = <factory>, orcid: 'OrcidConfig' = <factory>)"
+    },
+    "TelegramNotifyConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bot_token_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "chat_id": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "description": "TelegramNotifyConfig(bot_token_ref: 'SecretRef' = None, chat_id: 'str | int | None' = None)"
+    },
+    "UnpaywallConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "email_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "min_interval_s": {
+          "type": "number",
+          "default": 1.0
+        }
+      },
+      "description": "Archive only; enabled when an email reference is given."
+    },
+    "VenueIndicatorConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "strong_min_citedness": {
+          "type": "number",
+          "default": 1.0
+        },
+        "weak_max_citedness": {
+          "type": "number",
+          "default": 0.3
+        },
+        "weak_min_works": {
+          "type": "integer",
+          "default": 500
+        },
+        "cache_ttl_days": {
+          "type": "integer",
+          "default": 90
+        }
+      },
+      "description": "Thresholds for the open-data venue indicator."
+    },
+    "WeightLearningConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "propose",
+            "auto"
+          ],
+          "default": "propose"
+        },
+        "learning_rate": {
+          "type": "number",
+          "default": 0.15
+        },
+        "min_evidence": {
+          "type": "integer",
+          "default": 3
+        },
+        "clamp": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "default": [
+            0.5,
+            1.6
+          ]
+        }
+      },
+      "description": "Weight learning from feedback: ``propose`` reports changes, ``auto`` applies them."
+    },
+    "ZbmathConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "window_days": {
+          "type": "integer",
+          "default": 8
+        },
+        "max_pages_per_set": {
+          "type": "integer",
+          "default": 15
+        },
+        "oldest_year_delta": {
+          "type": "integer",
+          "default": 2
+        },
+        "timeout_s": {
+          "type": "integer",
+          "default": 240
+        },
+        "min_interval_s": {
+          "type": "number",
+          "default": 2.5
+        },
+        "oai_set_template": {
+          "type": "string",
+          "default": "{msc2}"
+        }
+      },
+      "description": "ZbmathConfig(enabled: 'bool' = False, window_days: 'int' = 8, max_pages_per_set: 'int' = 15, oldest_year_delta: 'int' = 2, timeout_s: 'int' = 240, min_interval_s: 'float' = 2.5, oai_set_template: 'str' = '{msc2}')"
+    },
+    "ZoteroConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "user_id": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "api_key_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "library_type": {
+          "enum": [
+            "user",
+            "group"
+          ],
+          "default": "user"
+        },
+        "base_dir": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "description": "ZoteroConfig(enabled: 'bool' = False, user_id: 'str | int | None' = None, api_key_ref: 'SecretRef' = None, library_type: \"Literal['user', 'group']\" = 'user', base_dir: 'str | None' = None)"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/note/1",
+  "title": "NoteFrontmatter",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "eid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}$"
+    },
+    "project": {
+      "type": "string",
+      "default": ""
+    },
+    "channel": {
+      "type": "string",
+      "default": ""
+    },
+    "reader": {
+      "type": "string",
+      "default": ""
+    },
+    "read_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "source_pdf": {
+      "type": "string",
+      "default": ""
+    },
+    "kind": {
+      "type": "string",
+      "default": "note"
+    },
+    "visibility": {
+      "enum": [
+        "public",
+        "internal",
+        "private"
+      ],
+      "default": "internal"
+    },
+    "zotero": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "citekey": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "kallimachos": {
+      "enum": [
+        "note/1"
+      ],
+      "default": "note/1"
+    },
+    "extra": {
+      "type": "object",
+      "additionalProperties": {}
+    }
+  },
+  "required": [
+    "eid"
+  ],
+  "description": "Frontmatter written by ``process note-write`` (contract ``note/1``)."
+}

@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "result": [
+    {"update_id": 500, "message": {"message_id": 7, "date": 1792310400, "chat": {"id": 4242},
+      "text": "3 good", "reply_to_message": {"message_id": 101}}},
+    {"update_id": 501, "message": {"message_id": 8, "date": 1792310460, "chat": {"id": 9999},
+      "text": "1 archive"}},
+    {"update_id": 502, "message": {"message_id": 9, "date": 1792310520, "chat": {"id": 4242},
+      "text": "2,4 alakasız"}},
+    {"update_id": 503, "edited_message": {"message_id": 9, "date": 1792310580, "chat": {"id": 4242},
+      "text": "ignored"}},
+    {"update_id": 504, "message": {"message_id": 10, "date": 1792310640, "chat": {"id": 4242},
+      "sticker": {}}}
+  ]
+}

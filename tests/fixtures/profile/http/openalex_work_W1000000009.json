@@ -1,0 +1,14 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.openalex.org/works/W1000000009",
+  "params": {}
+ },
+ "response": {
+  "status": 200,
+  "headers": {
+   "Content-Type": "application/json"
+  },
+  "body_file": "openalex_work_W1000000009.body.json"
+ }
+}

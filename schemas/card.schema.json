@@ -1,0 +1,440 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/card/4",
+  "title": "Card",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "eid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}$"
+    },
+    "path": {
+      "type": "string",
+      "default": ""
+    },
+    "pages": {
+      "type": "integer",
+      "default": 0
+    },
+    "schema": {
+      "enum": [
+        "kallimachos.card/4"
+      ],
+      "default": "kallimachos.card/4"
+    },
+    "citation": {
+      "$ref": "#/$defs/CardCitation"
+    },
+    "summary": {
+      "type": "string",
+      "default": ""
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CardItem"
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CardReference"
+      }
+    },
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "flags": {
+      "$ref": "#/$defs/CardFlags"
+    },
+    "false_alarms": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/FalseAlarm"
+      }
+    }
+  },
+  "required": [
+    "eid"
+  ],
+  "description": "``process/cards/<eid>.json`` (schema ``kallimachos.card/4``).",
+  "$defs": {
+    "CardCitation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "year": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "year_catalog": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "year_pdf": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "year_note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "title": {
+          "type": "string",
+          "default": ""
+        },
+        "venue": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "doi": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "arxiv": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "page_range": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "description": "CardCitation(authors: 'list[str]' = <factory>, year: 'int | None' = None, year_catalog: 'int | None' = None, year_pdf: 'int | None' = None, year_note: 'str | None' = None, title: 'str' = '', venue: 'str | None' = None, doi: 'str | None' = None, arxiv: 'str | None' = None, page_range: 'str | None' = None)"
+    },
+    "CardFlags": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "struggled": {
+          "type": "boolean",
+          "default": false
+        },
+        "potential": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "default": "medium"
+        },
+        "rationale": {
+          "type": "string",
+          "default": ""
+        },
+        "ocr_weak": {
+          "type": "boolean",
+          "default": false
+        },
+        "unreadable_pages": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "formulas_unreliable": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "description": "CardFlags(struggled: 'bool' = False, potential: \"Literal['low', 'medium', 'high']\" = 'medium', rationale: 'str' = '', ocr_weak: 'bool' = False, unreadable_pages: 'list[int]' = <factory>, formulas_unreliable: 'bool' = False)"
+    },
+    "CardItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "definition",
+            "theorem",
+            "proposition",
+            "lemma",
+            "corollary",
+            "construction",
+            "example",
+            "conjecture",
+            "open_problem",
+            "question",
+            "claimed_solution",
+            "method",
+            "remark",
+            "research_direction",
+            "algorithm"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 40,
+          "maxLength": 400
+        },
+        "statement": {
+          "type": "string"
+        },
+        "number": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "printed_page": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cites": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "importance": {
+          "enum": [
+            "main",
+            "supporting"
+          ],
+          "default": "main"
+        },
+        "quoted_from_other": {
+          "type": "boolean",
+          "default": false
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "open",
+                "solved_here",
+                "partly_solved_here",
+                "solved_elsewhere"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "solution_cites": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "concreteness": {
+          "anyOf": [
+            {
+              "enum": [
+                "concrete",
+                "open_ended"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "status_note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "solution_kind": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "target": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "type",
+        "label",
+        "page",
+        "quote",
+        "statement"
+      ],
+      "description": "One extracted item of a card. ``quote`` is verbatim, 40-400 chars."
+    },
+    "CardReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "doi": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "arxiv": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "key",
+        "text"
+      ],
+      "description": "CardReference(key: 'str', text: 'str', doi: 'str | None' = None, arxiv: 'str | None' = None)"
+    },
+    "FalseAlarm": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "page": {
+          "type": "integer"
+        },
+        "phrase": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "page",
+        "phrase",
+        "reason"
+      ],
+      "description": "FalseAlarm(page: 'int', phrase: 'str', reason: 'str')"
+    }
+  }
+}

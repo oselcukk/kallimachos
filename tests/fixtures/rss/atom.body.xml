@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/exampleQueryId</id>
+  <title>arXiv Query: Example Atom feed</title>
+  <updated>2026-10-18T10:20:45Z</updated>
+  <link href="https://arxiv.org/api/query?example" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>2</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.00005v1</id>
+    <title>An Atom entry about fictional modular curves</title>
+    <updated>2026-10-16T10:00:00Z</updated>
+    <link href="https://arxiv.org/abs/2610.00005v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.00005v1" rel="related" type="application/pdf" title="pdf"/>
+    <link href="https://doi.org/10.0000/example.64" rel="related" title="doi"/>
+    <summary>We study toy models of modular forms over finite fields. Nothing here is a real result.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-16T10:00:00Z</published>
+    <arxiv:comment>12 pages</arxiv:comment>
+    <arxiv:doi>10.0000/example.64</arxiv:doi>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Example Author A</name>
+    </author>
+    <author>
+      <name>Example Author B</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.00006v1</id>
+    <title>An old Atom entry</title>
+    <updated>2026-09-01T10:00:00Z</updated>
+    <link href="https://arxiv.org/abs/2610.00006v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.00006v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This synthetic abstract describes isogeny graphs of supersingular curves. It exists only as test data.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-01T10:00:00Z</published>
+    <arxiv:comment>12 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Example Author C</name>
+    </author>
+  </entry>
+</feed>

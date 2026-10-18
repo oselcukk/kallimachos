@@ -1,0 +1,5 @@
+{
+  "request": {"method": "GET", "url": "https://api.example.org/works/10.0000/missing"},
+  "response": {"status": 404, "headers": {"Content-Type": "text/plain"}, "body": "Resource not found."},
+  "expect": {"records": 0}
+}

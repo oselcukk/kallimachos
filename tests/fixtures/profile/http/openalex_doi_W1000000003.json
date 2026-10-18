@@ -1,0 +1,14 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.openalex.org/works/doi:10.48550/arxiv.2301.00001",
+  "params": {}
+ },
+ "response": {
+  "status": 200,
+  "headers": {
+   "Content-Type": "application/json"
+  },
+  "body_file": "openalex_doi_W1000000003.body.json"
+ }
+}

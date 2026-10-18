@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://oai.zbmath.org/v1/",
+    "params": {
+      "verb": "ListRecords",
+      "metadataPrefix": "oai_zb_preview",
+      "set": "11",
+      "from": "2026-10-10T00:00:00Z"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/xml; charset=utf-8"
+    },
+    "body_file": "oai_page1.body.xml"
+  },
+  "expect": {
+    "records": 2
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data."
+}

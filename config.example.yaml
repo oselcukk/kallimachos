@@ -1,0 +1,189 @@
+# Kallimachos configuration. Secrets never live here: use keyring:<name> or
+# env:<VAR> references. Every key must exist in schemas/config.schema.json; unknown keys are errors.
+schema_version: 1
+language: en            # en | tr  (the wizard speaks the user's language; this sets notifications/reports)
+timezone: Europe/Istanbul
+data_dir: null          # null = OS default (see docs/config.md)
+
+sources:
+  arxiv:        {enabled: true,  window_days: 4, page_size: 1000, max_records: 12000, min_interval_s: 3.1,
+                 base_url: "https://export.arxiv.org/api/query"}   # falls back to http on 3xx/error
+  iacr_eprint:  {enabled: false, window_days: 4, min_interval_s: 1.0}
+  crossref:     {enabled: true,  index_window_days: 1, created_window_days: 30, rows: 200, min_interval_s: 0.6,
+                 mailto_ref: null}                       # e.g. keyring:kallimachos/crossref_mailto
+  openalex:     {enabled: true,  window_days: 1, per_page: 200, max_pages: 2, min_interval_s: 0.15,
+                 daily_budget_usd: 0.20, weekly_extra_usd: 0.30, daily_cap_usd: 0.90,
+                 unit_cost_usd: {list: 0.0001, search: 0.001, single: 0.0},
+                 api_key_ref: null,                      # e.g. env:OPENALEX_API_KEY
+                 premium_filters: false}                 # from_created_date needs a paid plan
+  semantic_scholar: {enabled: false, min_interval_s: 1.2, api_key_ref: null}
+  zbmath:       {enabled: false, window_days: 8, max_pages_per_set: 15, oldest_year_delta: 2, timeout_s: 240,
+                 min_interval_s: 2.5, oai_set_template: "{msc2}"}
+  pubmed:       {enabled: false, window_days: 2, min_interval_s: 0.35, api_key_ref: null,
+                 tool: kallimachos, email_ref: null}     # NCBI asks for tool + email registration
+  biorxiv:      {enabled: false, servers: [biorxiv], window_days: 2, min_interval_s: 1.0}
+  rss:          {enabled: false, window_days: 7, min_interval_s: 1.0, feeds: []}   # [{name, url, channel_hint}]
+  scholar_imap: {enabled: false, host: null, port: 993, user_ref: null, password_ref: null, folder: INBOX,
+                 sender_filter: "scholaralerts-noreply@google.com"}   # [VERIFY sender]
+  unpaywall:    {enabled: false, email_ref: null, min_interval_s: 1.0}   # archive only
+  orcid:        {token_ref: null, min_interval_s: 0.1}                   # profile building only
+
+scoring:
+  weights:
+    title_core: 6
+    abstract_core: 3
+    title_broad: 2
+    abstract_broad: 1
+    channel_cap: 18
+    penalty: -3
+    penalty_floor: -6
+    arxiv_primary_category: 1.0
+    arxiv_secondary_category: 0.5
+    msc_primary_main: 3
+    msc_primary: 1.5
+    msc_secondary: 0.5
+    follow_author: 5
+    always_show_author: 100
+    seed_citation: 4
+    seed_citation_extra: 1
+    seed_citation_cap: 7
+    foundational_citation: 3
+    foundational_citation_extra: 1
+    foundational_citation_cap: 5
+    full_journal: 3
+    arxiv_category_mismatch_factor: 0.6
+  priority_multiplier: {1: 1.0, 2: 0.85, 3: 0.7}
+  threshold: {1: 4, 2: 6, 3: 9}
+  noise_factor: 0.35
+  noise_abstract_min_terms: 2
+  certain_pass_factor: 1.5
+  certain_pass_factor_by_channel: {}        # e.g. {C: 2.0}
+  certain_pass_fields: [math, math_phys]
+  paratext_extra: []
+  repository_venues_extra: []
+  venue_indicator: {strong_min_citedness: 1.0, weak_max_citedness: 0.3, weak_min_works: 500, cache_ttl_days: 90}
+
+ranking:
+  candidates: 30
+  main_items: 10
+  near_miss: 3
+  journal_quota: 2
+  journal_quota_pool: 6
+  abstract_full_first: 15
+  abstract_max_chars: 1500
+  abstract_short_chars: 300
+
+rescan:
+  unshown_grace_days: 7
+
+model:
+  provider: none          # claude | codex | hermes | none
+  command: null           # null = provider default
+  timeout_s: 600
+  prompt_dir: null        # null = packaged prompts
+
+notify:
+  silent_when_empty: false
+  channels: [markdown]
+  markdown: {path: null, checkbox_feedback: true}      # null = <data_dir>/daily
+  telegram: {bot_token_ref: null, chat_id: null}
+  email:
+    smtp_host: null
+    smtp_port: 587
+    security: starttls     # starttls | ssl
+    username: null
+    password_ref: null     # keyring:kallimachos/smtp
+    from: null
+    to: []
+    confirmed_at: null     # set by `notify confirm-email`; scheduling refuses while null
+  budget: {target_utf16: 3600, limit_utf16: 3900}
+
+feedback:
+  channels: [markdown]
+  weights:
+    mode: propose          # propose | auto
+    learning_rate: 0.15
+    min_evidence: 3
+    clamp: [0.5, 1.6]
+
+archive:
+  enabled: false
+  root: null
+  naming_template: "{authors}_{year}_{short_title}[_arXiv-{arxiv}{version}]"
+  max_authors_in_name: 3
+  short_title_words: 7
+  short_title_chars: 60
+  max_pdf_mb: 150
+  existing_roots: []
+  existing_exclude: []
+  sensitive_path_regex:
+    - "(?i)(personal|private|özel|kimlik|passport|salary|maaş|health|sağlık|students?|öğrenci|exam|sınav|homework|ödev)"
+
+process:
+  enabled: false
+  text_tool: pdftotext
+  ocr_tool: none           # ocrmypdf | none
+  ocr_langs: [eng]
+  workers: 4
+  quote_threshold: 90
+  book_pages: 150
+  chunk: {size: 100, group_size: 3}
+  models: {reader: null, recorder: null, verifier: null, cluster: null}   # documentation only; the agent lead applies roles
+  verify_sample_ratio: 0.10
+  zotero: {enabled: false, user_id: null, api_key_ref: null, library_type: user, base_dir: null}
+
+notes:
+  target: plain            # avenox | plain  (wizard detects beyin.py under vault_path)
+  vault_path: null         # Avenox vault root, or the plain Markdown folder root
+  literature_folder: Literature
+  link_style: null         # null = wikilink for avenox, markdown for plain
+  language: null           # null = top-level language
+  frontmatter: {kind: note, project: null, visibility: internal, extra: {}}   # project null = profile.field
+  etal_suffix: etal        # tr users may set "vd"
+  personal_relation_section: true   # "Relation to my work (inference)" section written by the reader
+  personal_profile_text: null       # null = generated from profile.yaml
+  cluster_summary_name: _Cluster-Summary.md
+  reading_queue_file: _Reading-Queue.md
+  task_owner: null         # Avenox task-create owner; null = ask the user once during init
+
+bridge:
+  enabled: false
+  mode: pull
+  remote: null             # user@host (SSH key auth only; no passwords)
+  remote_data_dir: null
+  local_archive_root: null # null = archive.root
+  ssh_options: ["BatchMode=yes", "ConnectTimeout=20"]
+  retry: 1
+
+schedule:
+  backend: local           # local | hermes | github | none
+  daily_at: "07:30"
+  weekly_on: sun
+  weekly_at: "09:30"
+  archive_at: "06:30"
+  catch_up_missed: true
+  max_catch_up_days: 3
+
+hooks:                     # optional agent hooks, installed only with `kallimachos hooks install`
+  session_start: true      # SessionStart status summary
+  guard: true              # PreToolUse guard for state files and managed note blocks
+  summary_max_chars: 600
+
+privacy:
+  send_only_strong_ids: true      # fixed true; validate rejects false
+  personal_data_in_logs: false    # fixed false
+
+profile:                   # profile-building thresholds
+  match:
+    autocomplete_min_sim: 0.7
+    high_sim: 0.92
+    medium_sim: 0.85
+    medium_sim_strict: 0.97
+    low_sim: 0.75
+    medium_year_tolerance: 1
+    strict_year_tolerance: 3
+    old_year_gap: 10
+    old_year_gap_sim: 0.95
+  journal_full_max_yearly_volume: 300
+  min_core_terms_warning: 5
+  foundational_max: 200

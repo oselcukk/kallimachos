@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://eprint.iacr.org/rss/rss.xml",
+    "params": {
+      "order": "recent"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/rss+xml; charset=utf-8"
+    },
+    "body_file": "rss.body.xml"
+  },
+  "expect": {
+    "records_in_window_2026-10-12_2026-10-18": 2,
+    "first_title": "A synthetic note on supersingular isogeny graphs"
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data."
+}

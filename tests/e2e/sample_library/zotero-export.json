@@ -1,0 +1,50 @@
+[
+ {
+  "id": "exC2021moments",
+  "type": "article-journal",
+  "title": "Moments of a fictional zeta function on the critical line",
+  "container-title": "Example Mathematical Proceedings",
+  "author": [
+   {
+    "family": "C",
+    "given": "Example Author"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2021,
+     6,
+     15
+    ]
+   ]
+  },
+  "DOI": "10.0000/example.2"
+ },
+ {
+  "id": "exB2018exp",
+  "type": "article-journal",
+  "title": "Exponential sums over fictional finite fields with applications",
+  "container-title": "Example Mathematical Proceedings",
+  "author": [
+   {
+    "family": "B",
+    "given": "Example Author"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2018
+    ]
+   ]
+  },
+  "DOI": "10.0000/example.7",
+  "keyword": "exponential sums; finite fields"
+ },
+ {
+  "id": "broken",
+  "type": "article-journal",
+  "author": "not a list"
+ }
+]

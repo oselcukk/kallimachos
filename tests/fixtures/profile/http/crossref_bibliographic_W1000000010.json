@@ -1,0 +1,18 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.crossref.org/works",
+  "params": {
+   "query.bibliographic": "Fictional bounds for additive energy of sparse sets",
+   "rows": "5",
+   "query.author": "F"
+  }
+ },
+ "response": {
+  "status": 200,
+  "headers": {
+   "Content-Type": "application/json"
+  },
+  "body_file": "crossref_bibliographic_W1000000010.body.json"
+ }
+}

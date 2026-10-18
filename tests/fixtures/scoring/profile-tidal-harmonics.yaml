@@ -1,0 +1,71 @@
+# Fictional profile for scoring tests: a made-up field ("tidal harmonics") with field-specific
+# policy expressed only as YAML rules. Nothing here refers to a real person, journal or project.
+schema_version: 1
+status: approved
+approved_at: 2026-10-01T09:00:00+00:00
+language_hint: en
+field: tidal-harmonics
+channels:
+  - id: T
+    name: Tidal harmonic analysis
+    priority: 1
+    folder: T-Tidal-Harmonics
+    keywords:
+      core: [tidal harmonic, harmonic constituent, tidal constituent, nodal modulation]
+      broad: [tide gauge, amphidromic point, sea level]
+    negative:
+      exclude: [harmonic oscillator]
+      penalty: [blockchain, sentiment analysis]
+    msc: {primary: [86A05], secondary: [76B15]}
+    arxiv: {primary: [physics.ao-ph], secondary: [physics.geo-ph]}
+    journals:
+      - {name: Example Tidal Review, issn: ["1111-0001"], mode: full, yearly_volume: 60}
+      - {name: Example Ocean Letters, issn: ["1111-0002"], mode: topic_filtered, yearly_volume: 900}
+    noise_terms: [stock market, cryptocurrency]
+    rules:
+      - id: t_no_plasma_without_core
+        stage: drop
+        when: {title_regex: "\\bplasma\\b", not_channel_core: [T]}
+        reason: plasma paper without tidal core terms
+  - id: M
+    name: Moon-forming impacts
+    priority: 2
+    folder: M-Moon-Forming
+    keywords:
+      core: [moon forming impact, giant impact hypothesis, lunar accretion]
+      broad: [protolunar disk, isotopic similarity]
+    negative: {exclude: [], penalty: []}
+    msc: {primary: [], secondary: []}
+    arxiv: {primary: [astro-ph.EP], secondary: []}
+    journals: []
+    noise_terms: []
+    rules: []
+    citation_alone_passes: true
+authors:
+  always_show:
+    - {name: Example Mentor, aliases: [E. Mentor]}
+  follow:
+    - {name: Example Verifiedsmith, status: verified, channels: [T]}
+    - {name: Example Uncertainsmith, status: uncertain, channels: [M]}
+seeds:
+  - {title: "A fictional nodal modulation study", year: 2018, first_author: Example,
+     openalex_id: W9000000001, channels: [T], confidence: high}
+  - {title: "A fictional giant impact simulation", year: 2020, first_author: Example,
+     openalex_id: W9000000002, channels: [M], confidence: medium}
+foundational:
+  - {openalex_id: W9000000100, title: "Fictional foundational tides text", cited_by_seeds: 2}
+excluded_topics: [stock market forecasting]
+rules:
+  # Field-specific policy lives here, not in the core: pure physics papers are dropped unless a
+  # verified colleague is among the authors ...
+  - id: physics_unless_verified_author
+    stage: drop
+    when: {field_class: physics, not_author_status: verified}
+    reason: physics paper without a verified colleague
+  # ... and a journal-specific exception passes T papers in a legit venue that use a structural
+  # phrase, regardless of score.
+  - id: t_structural_pass
+    stage: pass
+    when: {all: [{context_channel: T}, {text_regex: "\\bconstituent (?:phase|amplitude) lattice\\b"}, {venue_legit: true}]}
+    reason: constituent lattice paper in a legit venue
+notes: "Fictional profile for unit tests."

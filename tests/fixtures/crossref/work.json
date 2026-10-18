@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.crossref.org/works/10.0000/example.11"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body_file": "work.body.json"
+  },
+  "expect": {
+    "title": "An invented family of Diophantine equations"
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data."
+}

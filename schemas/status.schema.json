@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/status/1",
+  "title": "StatusEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "eid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}$"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "discovered",
+        "scored",
+        "dropped",
+        "candidate",
+        "shown",
+        "unshown",
+        "expired",
+        "fb:good",
+        "fb:irrelevant",
+        "fb:read",
+        "fb:ask",
+        "fb:archive",
+        "auto_pass",
+        "archive:queued",
+        "downloaded",
+        "unreachable",
+        "existing",
+        "filtered",
+        "text_extracted",
+        "ocr_done",
+        "card_written",
+        "check_passed",
+        "check_failed",
+        "semantic_verified",
+        "semantic_failed",
+        "note_written",
+        "linked",
+        "cluster_summarized"
+      ],
+      "default": "downloaded"
+    },
+    "at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "by": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "required": [
+    "eid"
+  ],
+  "description": "One append-only line of ``process/status.jsonl``. Last line per eid wins."
+}

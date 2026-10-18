@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/existing_catalog/1",
+  "title": "ExistingEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "path": {
+      "type": "string"
+    },
+    "root": {
+      "type": "string"
+    },
+    "size": {
+      "type": "integer"
+    },
+    "mtime": {
+      "type": "number"
+    },
+    "local": {
+      "type": "boolean",
+      "default": true
+    },
+    "sha256": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "pattern": "^[0-9a-f]{64}$",
+      "default": null
+    },
+    "doi": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "arxiv": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "arxiv_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "eprint": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "pii": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "title": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "year": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "kind_guess": {
+      "type": "string",
+      "enum": [
+        "article",
+        "preprint",
+        "book",
+        "thesis",
+        "chapter",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "keys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "identified_by": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "queried": {
+      "type": "boolean",
+      "default": false
+    },
+    "extractor_version": {
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": [
+    "path",
+    "root",
+    "size",
+    "mtime"
+  ],
+  "description": "One line of ``archive/existing_catalog.jsonl``."
+}

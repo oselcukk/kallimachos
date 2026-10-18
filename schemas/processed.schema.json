@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/processed/1",
+  "title": "ProcessedEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "keys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "enum": [
+        "filtered",
+        "no_channel",
+        "unsupported",
+        "duplicate",
+        "superseded_skip"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "default": ""
+    },
+    "trigger": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "required": [
+    "at",
+    "keys",
+    "status"
+  ],
+  "description": "One line of ``archive/processed.jsonl``: a trigger the archive decided not to download."
+}

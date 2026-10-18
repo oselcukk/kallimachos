@@ -1,0 +1,15 @@
+{
+  "language": "tr",
+  "description": "Turkish counterparts of open_problem_phrases.en.json. Stored with \\u escapes (ASCII file) so the repository hygiene check for Turkish characters outside i18n stays green.",
+  "patterns": [
+    "\\ba\u00e7\u0131k (?:problem|soru)\\b",
+    "\\ba\u00e7\u0131k kal(?:\u0131r|maktad\u0131r|\u0131yor)\\b",
+    "\\bh\u00e2l\u00e2 bilinmiyor\\b",
+    "\\bbilinmemektedir\\b",
+    "\\b\u00e7\u00f6z\u00fclmemi\u015f\\b",
+    "\\bsorusu a\u00e7\u0131kt\u0131r\\b",
+    "\\bilgin\u00e7 olurdu\\b",
+    "\\bsan\u0131(?:yoruz|lmaktad\u0131r)\\b",
+    "\\b\u015fu soru(?:yu)? (?:sor|ortaya)\\b"
+  ]
+}

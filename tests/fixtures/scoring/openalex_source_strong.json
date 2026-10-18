@@ -1,0 +1,12 @@
+{
+  "id": "https://openalex.org/S9000000001",
+  "display_name": "Example Tidal Review",
+  "issn_l": "1111-0001",
+  "issn": ["1111-0001"],
+  "works_count": 2400,
+  "cited_by_count": 51000,
+  "summary_stats": {"2yr_mean_citedness": 2.7, "h_index": 88, "i10_index": 1900},
+  "is_oa": false,
+  "is_in_doaj": false,
+  "type": "journal"
+}

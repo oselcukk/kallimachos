@@ -1,0 +1,97 @@
+{
+ "total": 3,
+ "token": null,
+ "data": [
+  {
+   "paperId": "0000000000000000000000000000000000000001",
+   "externalIds": {
+    "CorpusId": 900000001,
+    "DOI": "10.0000/example.31"
+   },
+   "title": "Fictional bounds for twisted exponential sums",
+   "venue": "Example Conference on Number Theory",
+   "year": 2026,
+   "openAccessPdf": {
+    "url": "",
+    "status": "CLOSED",
+    "license": null,
+    "disclaimer": "Notice: fictional test data."
+   },
+   "publicationTypes": [
+    "JournalArticle"
+   ],
+   "publicationDate": "2026-10-16",
+   "journal": {
+    "name": "Example Journal of Mathematics",
+    "volume": "1",
+    "pages": "1-12"
+   },
+   "authors": [
+    {
+     "authorId": null,
+     "name": "Example Author A"
+    },
+    {
+     "authorId": "70000001",
+     "name": "Example Author B"
+    }
+   ],
+   "abstract": "We prove fictional bounds for twisted exponential sums with multiplicative coefficients and discuss an invented application to modular forms."
+  },
+  {
+   "paperId": "0000000000000000000000000000000000000002",
+   "externalIds": {
+    "CorpusId": 900000002,
+    "ArXiv": "2610.00003"
+   },
+   "title": "A synthetic note on supersingular isogeny graphs",
+   "venue": "arXiv.org",
+   "year": 2026,
+   "openAccessPdf": {
+    "url": "https://arxiv.org/pdf/2610.00003",
+    "status": "GREEN",
+    "license": "CCBY",
+    "disclaimer": "Notice: fictional test data."
+   },
+   "publicationTypes": null,
+   "publicationDate": "2026-10-15",
+   "journal": {
+    "name": "arXiv.org"
+   },
+   "authors": [
+    {
+     "authorId": null,
+     "name": "Example Author C"
+    }
+   ],
+   "abstract": null
+  },
+  {
+   "paperId": "0000000000000000000000000000000000000003",
+   "externalIds": {
+    "CorpusId": 900000003
+   },
+   "title": "Toy models of modular forms over finite fields",
+   "venue": "Example Conference on Number Theory",
+   "year": 2026,
+   "openAccessPdf": {
+    "url": "",
+    "status": "CLOSED",
+    "license": null,
+    "disclaimer": "Notice: fictional test data."
+   },
+   "publicationTypes": null,
+   "publicationDate": null,
+   "journal": {
+    "name": "arXiv.org"
+   },
+   "authors": [
+    {
+     "authorId": null,
+     "name": "Example Author D"
+    }
+   ],
+   "abstract": "We study toy models of modular forms over finite fields. Nothing here is a real result."
+  }
+ ]
+}

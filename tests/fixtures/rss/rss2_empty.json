@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://feeds.example.org/rss/math.NT"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/rss+xml"
+    },
+    "body_file": "rss2_empty.body.xml"
+  },
+  "expect": {
+    "records": 0
+  },
+  "note": "Captured verbatim (an empty weekend feed); host names replaced."
+}

@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://feeds.example.org/atom/math.NT"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/atom+xml; charset=utf-8"
+    },
+    "body_file": "atom.body.xml"
+  },
+  "expect": {
+    "records_in_window_2026-10-11_2026-10-18": 1
+  },
+  "note": "Atom 1.0 in the shape of the captured arXiv Atom response."
+}

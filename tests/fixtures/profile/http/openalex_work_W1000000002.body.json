@@ -1,0 +1,49 @@
+{
+ "id": "https://openalex.org/W1000000002",
+ "doi": "https://doi.org/10.0000/example.2",
+ "display_name": "Moments of a fictional zeta function on the critical line",
+ "title": "Moments of a fictional zeta function on the critical line",
+ "publication_year": 2021,
+ "publication_date": "2021-06-15",
+ "type": "article",
+ "type_crossref": "journal-article",
+ "authorships": [
+  {
+   "author": {
+    "id": "https://openalex.org/A5000000003",
+    "display_name": "Example Author C",
+    "orcid": "https://orcid.org/0000-0001-0000-0003"
+   }
+  }
+ ],
+ "primary_location": {
+  "source": {
+   "id": "https://openalex.org/S9000000002",
+   "display_name": "Example Mathematical Proceedings",
+   "issn_l": "0000-0002",
+   "issn": [
+    "0000-0002",
+    "0000-0003"
+   ]
+  },
+  "landing_page_url": "https://example.org/works/W1000000002"
+ },
+ "topics": [
+  {
+   "display_name": "Zeta Functions",
+   "subfield": {
+    "display_name": "Analytic Number Theory"
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "display_name": "Zeta Functions"
+  }
+ ],
+ "referenced_works": [
+  "https://openalex.org/W2000000002",
+  "https://openalex.org/W2000000003"
+ ],
+ "cited_by_count": 4
+}

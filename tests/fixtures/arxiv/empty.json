@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://export.arxiv.org/api/query"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/atom+xml; charset=utf-8"
+    },
+    "body_file": "empty.body.xml"
+  },
+  "expect": {
+    "records": 0
+  },
+  "note": "Synthetic empty page in the captured feed shape."
+}

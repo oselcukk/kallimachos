@@ -1,0 +1,6 @@
+{
+  "request": {"method": "IMAP", "url": "imap://imap.example.org/INBOX"},
+  "response": {"status": 200, "headers": {}, "body_file": "alert.eml"},
+  "expect": {"records": 3, "first_title": "Fictional bounds for twisted modular forms"},
+  "note": "Fictional Google Scholar alert e-mail (no request was made to Scholar or to any mailbox). Markup follows the commonly observed alert layout: h3 > a.gse_alrt_title, author/venue div, div.gse_alrt_sni."
+}

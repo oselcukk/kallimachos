@@ -1,0 +1,14 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.openalex.org/works/doi:10.0000/example.7",
+  "params": {}
+ },
+ "response": {
+  "status": 200,
+  "headers": {
+   "Content-Type": "application/json"
+  },
+  "body_file": "openalex_doi_W1000000007.body.json"
+ }
+}

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>Cryptology ePrint Archive</title>
+    <link>https://eprint.iacr.org/rss/rss.xml</link>
+    <description>The Cryptology ePrint Archive provides rapid access to recent
+      research in cryptology. Papers have been placed here by the
+      authors and did not undergo any refereeing process other than
+      verifying that the work seems to be within the scope of
+      cryptology and meets some minimal acceptance criteria and
+      publishing conditions.</description>
+    <atom:link href="https://eprint.iacr.org/rss/rss.xml" rel="self"/>
+    <category>Applications</category>
+    <category>Cryptographic protocols</category>
+    <category>Foundations</category>
+    <category>Implementation</category>
+    <category>Secret-key cryptography</category>
+    <category>Public-key cryptography</category>
+    <category>Attacks and cryptanalysis</category>
+    <copyright>Metadata is available under the CC0 license https://creativecommons.org/publicdomain/zero/1.0/. Each article has a PDF with different license specified for each one.</copyright>
+    <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <generator>None of your business</generator>
+    <image>
+      <url>https://iacr.org/img/logo/iacrlogo_small.png</url>
+      <title>Cryptology ePrint Archive</title>
+      <link>https://eprint.iacr.org/rss/rss.xml</link>
+    </image>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 17 Oct 2026 13:15:44 +0000</lastBuildDate>
+    <ttl>1440</ttl>
+        <item>
+      <title>A synthetic note on supersingular isogeny graphs</title>
+      <link>https://eprint.iacr.org/2026/0001</link>
+      <description><![CDATA[This synthetic abstract describes isogeny graphs of supersingular curves. It exists only as test data. Let $p\equiv3\pmod4$.]]></description>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/0001</guid>
+      <category>Attacks and cryptanalysis</category>
+      <enclosure url="https://eprint.iacr.org/2026/0001.pdf" length="506987" type="application/pdf" />
+      <pubDate>Sat, 17 Oct 2026 13:15:44 +0000</pubDate>
+      <dc:creator>Example Author A</dc:creator>
+      <dc:rights>https://creativecommons.org/licenses/by/4.0/</dc:rights>
+    </item>
+    <item>
+      <title>Toy lattice signatures &amp; friends</title>
+      <link>https://eprint.iacr.org/2026/0002</link>
+      <description><![CDATA[We prove fictional bounds for twisted exponential sums with multiplicative coefficients and discuss an invented application to modular forms.]]></description>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/0002</guid>
+      <category>Public-key cryptography</category>
+      <enclosure url="https://eprint.iacr.org/2026/0002.pdf" length="506987" type="application/pdf" />
+      <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
+      <dc:creator>Example Author B</dc:creator>
+      <dc:creator>Example Author C</dc:creator>
+      <dc:rights>https://creativecommons.org/licenses/by/4.0/</dc:rights>
+    </item>
+    <item>
+      <title>An old fictional protocol</title>
+      <link>https://eprint.iacr.org/2026/0003</link>
+      <description><![CDATA[We study toy models of modular forms over finite fields. Nothing here is a real result.]]></description>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/0003</guid>
+      <category>Cryptographic protocols</category>
+      <enclosure url="https://eprint.iacr.org/2026/0003.pdf" length="506987" type="application/pdf" />
+      <pubDate>Mon, 05 Oct 2026 08:00:00 +0000</pubDate>
+      <dc:creator>Example Author D</dc:creator>
+      <dc:rights>https://creativecommons.org/licenses/by/4.0/</dc:rights>
+    </item>
+  </channel>
+</rss>

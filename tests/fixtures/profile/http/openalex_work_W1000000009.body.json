@@ -1,0 +1,45 @@
+{
+ "id": "https://openalex.org/W1000000009",
+ "doi": null,
+ "display_name": "Equidistribution of fictional Kloosterman angles in arithmetic progressions",
+ "title": "Equidistribution of fictional Kloosterman angles in arithmetic progressions",
+ "publication_year": 2016,
+ "publication_date": "2016-02-02",
+ "type": "article",
+ "type_crossref": "journal-article",
+ "authorships": [
+  {
+   "author": {
+    "id": "https://openalex.org/A5000000006",
+    "display_name": "Example Author F",
+    "orcid": null
+   }
+  }
+ ],
+ "primary_location": {
+  "source": {
+   "id": "https://openalex.org/S9000000001",
+   "display_name": "Example Journal of Number Theory",
+   "issn_l": "0000-0001",
+   "issn": [
+    "0000-0001"
+   ]
+  },
+  "landing_page_url": "https://example.org/works/W1000000009"
+ },
+ "topics": [
+  {
+   "display_name": "Exponential Sums",
+   "subfield": {
+    "display_name": "Analytic Number Theory"
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "display_name": "Exponential Sums"
+  }
+ ],
+ "referenced_works": [],
+ "cited_by_count": 3
+}

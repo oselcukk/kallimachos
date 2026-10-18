@@ -1,0 +1,132 @@
+{
+ "group": [
+  {
+   "external-ids": {
+    "external-id": [
+     {
+      "external-id-type": "doi",
+      "external-id-value": "10.0000/example.1"
+     }
+    ]
+   },
+   "work-summary": [
+    {
+     "title": {
+      "title": {
+       "value": "A sieve bound for twin prime pairs in short intervals"
+      }
+     },
+     "type": "journal-article",
+     "publication-date": {
+      "year": {
+       "value": "2019"
+      }
+     },
+     "journal-title": {
+      "value": "Example Journal of Number Theory"
+     },
+     "external-ids": {
+      "external-id": [
+       {
+        "external-id-type": "doi",
+        "external-id-value": "10.0000/example.1"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "external-ids": {
+    "external-id": [
+     {
+      "external-id-type": "doi",
+      "external-id-value": "10.0000/example.2"
+     }
+    ]
+   },
+   "work-summary": [
+    {
+     "title": {
+      "title": {
+       "value": "Moments of a fictional zeta function on the critical line"
+      }
+     },
+     "type": "journal-article",
+     "publication-date": {
+      "year": {
+       "value": "2021"
+      }
+     },
+     "journal-title": {
+      "value": "Example Mathematical Proceedings"
+     },
+     "external-ids": {
+      "external-id": [
+       {
+        "external-id-type": "doi",
+        "external-id-value": "10.0000/example.2"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "external-ids": {
+    "external-id": [
+     {
+      "external-id-type": "doi",
+      "external-id-value": "10.0000/example.5"
+     }
+    ]
+   },
+   "work-summary": [
+    {
+     "title": {
+      "title": {
+       "value": "Zero density estimates for a family of Dirichlet series"
+      }
+     },
+     "type": "journal-article",
+     "publication-date": {
+      "year": {
+       "value": "2020"
+      }
+     },
+     "journal-title": {
+      "value": "Example Journal of Number Theory"
+     },
+     "external-ids": {
+      "external-id": [
+       {
+        "external-id-type": "doi",
+        "external-id-value": "10.0000/example.5"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "external-ids": {
+    "external-id": []
+   },
+   "work-summary": [
+    {
+     "title": {
+      "title": {
+       "value": "Short note"
+      }
+     },
+     "type": "other",
+     "publication-date": null,
+     "journal-title": null,
+     "external-ids": {
+      "external-id": []
+     }
+    }
+   ]
+  }
+ ]
+}

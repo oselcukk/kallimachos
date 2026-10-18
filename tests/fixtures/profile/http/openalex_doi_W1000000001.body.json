@@ -1,0 +1,55 @@
+{
+ "id": "https://openalex.org/W1000000001",
+ "doi": "https://doi.org/10.0000/example.1",
+ "display_name": "A sieve bound for twin prime pairs in short intervals",
+ "title": "A sieve bound for twin prime pairs in short intervals",
+ "publication_year": 2019,
+ "publication_date": "2019-03-01",
+ "type": "article",
+ "type_crossref": "journal-article",
+ "authorships": [
+  {
+   "author": {
+    "id": "https://openalex.org/A5000000001",
+    "display_name": "Example Author A",
+    "orcid": "https://orcid.org/0000-0001-0000-0001"
+   }
+  },
+  {
+   "author": {
+    "id": "https://openalex.org/A5000000002",
+    "display_name": "Example Author B",
+    "orcid": null
+   }
+  }
+ ],
+ "primary_location": {
+  "source": {
+   "id": "https://openalex.org/S9000000001",
+   "display_name": "Example Journal of Number Theory",
+   "issn_l": "0000-0001",
+   "issn": [
+    "0000-0001"
+   ]
+  },
+  "landing_page_url": "https://example.org/works/W1000000001"
+ },
+ "topics": [
+  {
+   "display_name": "Sieve Methods",
+   "subfield": {
+    "display_name": "Analytic Number Theory"
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "display_name": "Sieve Methods"
+  }
+ ],
+ "referenced_works": [
+  "https://openalex.org/W2000000001",
+  "https://openalex.org/W2000000002"
+ ],
+ "cited_by_count": 12
+}

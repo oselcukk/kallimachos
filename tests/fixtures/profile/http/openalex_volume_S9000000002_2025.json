@@ -1,0 +1,17 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.openalex.org/works",
+  "params": {
+   "filter": "primary_location.source.id:S9000000002,publication_year:2025",
+   "per-page": "1"
+  }
+ },
+ "response": {
+  "status": 200,
+  "headers": {
+   "Content-Type": "application/json"
+  },
+  "body_file": "openalex_volume_S9000000002_2025.body.json"
+ }
+}

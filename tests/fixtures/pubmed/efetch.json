@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+    "params": {
+      "db": "pubmed",
+      "id": "10000001,10000002",
+      "retmode": "xml",
+      "tool": "kallimachos"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/xml; charset=UTF-8"
+    },
+    "body_file": "efetch.body.xml"
+  },
+  "expect": {
+    "records": 2,
+    "first_title": "Fictional bounds for twisted exponential sums"
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data."
+}

@@ -1,0 +1,45 @@
+{
+ "id": "https://openalex.org/W1000000003",
+ "doi": "https://doi.org/10.48550/arxiv.2301.00001",
+ "display_name": "Large sieve inequalities for fictional character sums",
+ "title": "Large sieve inequalities for fictional character sums",
+ "publication_year": 2023,
+ "publication_date": "2023-01-02",
+ "type": "preprint",
+ "type_crossref": "posted-content",
+ "authorships": [
+  {
+   "author": {
+    "id": "https://openalex.org/A5000000001",
+    "display_name": "Example Author A",
+    "orcid": "https://orcid.org/0000-0001-0000-0001"
+   }
+  }
+ ],
+ "primary_location": {
+  "source": {
+   "id": "https://openalex.org/S9000000009",
+   "display_name": "arXiv (Example Mirror)",
+   "issn_l": null,
+   "issn": []
+  },
+  "landing_page_url": "https://example.org/works/W1000000003"
+ },
+ "topics": [
+  {
+   "display_name": "Sieve Methods",
+   "subfield": {
+    "display_name": "Analytic Number Theory"
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "display_name": "Sieve Methods"
+  }
+ ],
+ "referenced_works": [
+  "https://openalex.org/W2000000001"
+ ],
+ "cited_by_count": 1
+}

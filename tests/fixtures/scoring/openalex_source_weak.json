@@ -1,0 +1,9 @@
+{
+  "id": "https://openalex.org/S9000000002",
+  "display_name": "Example Bulk Proceedings",
+  "issn": ["1111-0009"],
+  "works_count": 18000,
+  "cited_by_count": 900,
+  "summary_stats": {"2yr_mean_citedness": 0.05, "h_index": 9, "i10_index": 20},
+  "type": "journal"
+}

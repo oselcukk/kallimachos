@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://oai.zbmath.org/v1/"
+  },
+  "response": {
+    "status": 404,
+    "headers": {
+      "Content-Type": "text/xml; charset=utf-8"
+    },
+    "body_file": "oai_bad_token.body.xml"
+  },
+  "expect": {
+    "records": 0
+  },
+  "note": "Synthetic, same provenance as oai_no_records."
+}

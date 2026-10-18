@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/selection/1",
+  "title": "Selection",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}-(daily|weekly)$"
+    },
+    "written_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "by": {
+      "enum": [
+        "model",
+        "rule",
+        "user"
+      ],
+      "default": "rule"
+    },
+    "schema": {
+      "enum": [
+        "kallimachos.selection/1"
+      ],
+      "default": "kallimachos.selection/1"
+    },
+    "main": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "near": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "quota_not_in_main": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "message_no": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "run_id"
+  ],
+  "description": "``runs/<run_id>.selection.json``."
+}

@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.zbmath.org/v1/document/_search",
+    "params": {
+      "search_string": "an:9000001"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body_file": "rest_search.body.json"
+  },
+  "expect": {
+    "records": 1,
+    "title": "An invented family of Diophantine equations"
+  },
+  "note": "Shape captured from a live response on 2026-10-18; values replaced with fictional data."
+}

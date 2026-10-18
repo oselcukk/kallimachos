@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oselcukk/kallimachos/schemas/seen/1",
+  "title": "SeenEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "keys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "first_run": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}-(daily|weekly)$"
+    },
+    "last_run": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}-(daily|weekly)$"
+    },
+    "shown": {
+      "type": "boolean",
+      "default": false
+    },
+    "shown_run": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "shown_no": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "article",
+        "preprint",
+        "book",
+        "thesis",
+        "chapter",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "title_short": {
+      "type": "string",
+      "default": ""
+    },
+    "expired": {
+      "type": "boolean",
+      "default": false
+    },
+    "journal_version_note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "keys",
+    "first_run",
+    "last_run"
+  ],
+  "description": "One line of ``state/seen.jsonl``. Seen is not the same as shown."
+}

@@ -1,0 +1,23 @@
+# virtual environments
+.venv/
+venv/
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+# user state never enters the repository (it lives in the data directory)
+*.local.yaml
+runs/
+config.yaml
+profile.yaml
+weights.json
+answers.yaml
+# editors / OS
+.DS_Store
+.idea/
+.vscode/

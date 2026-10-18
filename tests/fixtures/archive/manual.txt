@@ -1,0 +1,8 @@
+# manual archive requests (fictional identifiers)
+10.0000/example.1 channel=A
+https://doi.org/10.0000/EXAMPLE.2
+arXiv:2501.01234v2 person=Example-Person-A  # with a comment
+2024/123
+W1234567
+not-an-identifier
+10.0000/example.3 colour=red
