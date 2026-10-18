@@ -32,6 +32,7 @@ dependencies = [
   "jsonschema>=4.18",
   "keyring>=24",     # OS keychain for secrets
   "rapidfuzz>=3.0",  # fuzzy quote and citation matching
+  "tzdata; sys_platform == 'win32'",  # IANA time zones: Windows has no system database
 ]
 
 [project.optional-dependencies]
