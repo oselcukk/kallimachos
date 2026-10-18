@@ -319,8 +319,18 @@ def _strip_prefixes(argv: list[str]) -> list[str]:
     return argv[i:]
 
 
+def _expanduser(token: str) -> str:
+    """``~`` as the shell sees it: ``$HOME`` when set. On Windows ``os.path.expanduser`` ignores
+    ``HOME`` (it uses ``USERPROFILE``), but the Bash tool runs Git Bash, which expands ``~`` to
+    ``$HOME``."""
+    home = os.environ.get("HOME")
+    if home and (token == "~" or token.startswith(("~/", "~\\"))):
+        return home + token[1:]
+    return os.path.expanduser(token)
+
+
 def _expand(token: str, cwd: str) -> str:
-    path = os.path.expandvars(os.path.expanduser(token))
+    path = os.path.expandvars(_expanduser(token))
     return path if os.path.isabs(path) else os.path.join(cwd, path)
 
 
@@ -364,7 +374,8 @@ def _root_mentions(command: str, layout: DataLayout) -> list[str]:
     """Paths spelled with the data root inside any token (covers code strings and other quoting
     the tokenizer cannot follow)."""
     out: list[str] = []
-    for root in {str(layout.root), os.path.realpath(layout.root)}:
+    roots = {str(layout.root), os.path.realpath(layout.root), Path(layout.root).as_posix()}
+    for root in roots:
         idx = command.find(root)
         while idx != -1:
             tail = _ROOT_TAIL.split(command[idx:], maxsplit=1)[0]

@@ -48,13 +48,20 @@ def _bash(command: str, cwd: Path) -> dict[str, object]:
     return {"tool_name": "Bash", "tool_input": {"command": command}, "cwd": str(cwd)}
 
 
+def _sh(path: Path) -> str:
+    """A path as spelled in a Bash command: forward slashes (Git Bash on Windows treats an
+    unquoted backslash as an escape, so ``C:\\Users`` would not name the file at all)."""
+    return path.as_posix()
+
+
 def _decide(env: dict[str, Path], payload: dict[str, object]) -> str | None:
     return guard.decide(payload, DataLayout(env["data"]))
 
 
 def test_state_file_written_through_quoting_and_expansion_is_denied(env: dict[str, Path]) -> None:
-    d = env["data"]
-    escaped = str(d).replace(" ", "\\ ")
+    d = _sh(env["data"])
+    link = _sh(env["link"])
+    escaped = d.replace(" ", "\\ ")
     cases = [
         f'echo x > "{d}/state/seen.jsonl"',
         f"echo x > '{d}/state/seen.jsonl'",
@@ -62,11 +69,11 @@ def test_state_file_written_through_quoting_and_expansion_is_denied(env: dict[st
         f'echo x >> "{d}/state/seen.jsonl"',
         f'cd "{d}" && echo x > state/seen.jsonl',
         f'cd "{d}/state"; rm seen.jsonl',
-        f"echo x > {env['link']}/state/seen.jsonl",
+        f"echo x > {link}/state/seen.jsonl",
         "echo x > ~/Library/Application\\ Support/kallimachos/state/seen.jsonl",
         'rm "$HOME/Library/Application Support/kallimachos/state/seen.jsonl"',
         'echo x | tee "$HOME/Library/Application Support/kallimachos/state/seen.jsonl"',
-        f"python3 -c \"open('{env['link']}/state/seen.jsonl','w').write('1')\"",
+        f"python3 -c \"open('{link}/state/seen.jsonl','w').write('1')\"",
         f"python3 -c \"from pathlib import Path; Path('{d}/state/seen.jsonl').write_text('x')\"",
         f'perl -pi -e s/a/b/ "{d}/state/seen.jsonl"',
         f"sed -i '' s/a/b/ '{d}/state/seen.jsonl'",
@@ -79,7 +86,7 @@ def test_state_file_written_through_quoting_and_expansion_is_denied(env: dict[st
 
 
 def test_reads_and_dev_null_are_allowed(env: dict[str, Path]) -> None:
-    d = env["data"]
+    d = _sh(env["data"])
     cases = [
         f'cat "{d}/state/seen.jsonl"',
         f'cat "{d}/state/seen.jsonl" > /dev/null',
@@ -96,7 +103,7 @@ def test_reads_and_dev_null_are_allowed(env: dict[str, Path]) -> None:
 
 
 def test_in_place_editors_on_a_managed_block_are_denied(env: dict[str, Path]) -> None:
-    note = env["note"]
+    note = _sh(env["note"])
     for command in (
         f"perl -pi -e s/BODY/HACK/ {note}",
         f"sed -i '' s/BODY/HACK/ {note}",
@@ -132,6 +139,7 @@ def test_case_variant_path_is_denied_on_case_insensitive_systems(env: dict[str, 
 def test_write_candidates_follow_cd_and_expand(env: dict[str, Path]) -> None:
     cwd = str(env["tmp"])
     found = guard.write_candidates('cd "$HOME/Library" && echo x > "Application Support/k/s"', cwd)
-    assert found == [os.path.join(str(env["home"]), "Library", "Application Support", "k", "s")]
+    expected = os.path.join(str(env["home"]), "Library", "Application Support", "k", "s")
+    assert [os.path.normpath(p) for p in found] == [expected]
     assert guard.write_candidates("cat a b | sort", cwd) == []
     assert guard.write_candidates("cp a b", cwd) == [os.path.join(cwd, "b")]
