@@ -161,11 +161,19 @@ class FileLock:
         if fh is None:
             return
         self._fh = None
-        # unlink while still holding the lock, so nobody can lock the old inode afterwards
-        with contextlib.suppress(OSError):
-            self.path.unlink()
-        _unlock(fh)
-        fh.close()
+        if sys.platform == "win32":
+            # an open file cannot be deleted on Windows: close first, then delete; the delete
+            # fails harmlessly while another process has the file open (it may be locking it)
+            _unlock(fh)
+            fh.close()
+            with contextlib.suppress(OSError):
+                self.path.unlink()
+        else:
+            # unlink while still holding the lock, so nobody can lock the old inode afterwards
+            with contextlib.suppress(OSError):
+                self.path.unlink()
+            _unlock(fh)
+            fh.close()
 
     def is_stale(self, *, now: float | None = None) -> bool:
         """True when the lock file exists, its owner PID is gone or it is older than
